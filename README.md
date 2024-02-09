@@ -1,1 +1,61 @@
-# Smartwatch
+<p align="center">
+      <img src="https://i.ibb.co/xDdRkPS/image-2024-02-09-19-30-22.png" alt="Smartwatch">
+</p>
+
+<p align="center">
+   <img src="https://img.shields.io/badge/HTML-v5-orange" alt="HTML">
+   <img src="https://img.shields.io/badge/CSS-v3-blue" alt="Css">
+   <img src="https://img.shields.io/badge/JavaScript-jQuery-yellow" alt="jQuery">
+</p>
+
+## Description
+
+This project serves as a mini-project focusing on the sale of smartwatches, along with complementary straps and accessories. The website is designed as a simple, one-page platform, prioritizing a user-friendly experience. Crafted with simplicity in mind, the project is set to undergo gradual enhancements.
+
+## Functionality
+
+- Essential features mirroring a streamlined, one-page platform for smartwatches and accessories.
+- Simplified structure designed for an uncomplicated and user-friendly online shopping experience.
+- Minimalist functionality, highlighting simplicity and ease of use for browsing and purchasing.
+- Intentionally kept minimalistic, emphasizing essential elements to serve the straightforward purpose of the smartwatch store.
+- Mobile optimization guarantees a seamless shopping experience across various screen sizes and devices.
+
+## Requirements
+
+- Internet Connection.
+- Web Browser.
+- JavaScript Enabled.
+
+## Installation
+
+1. Clone the repository: `git clone https://github.com/poltoratskyi/Smartwatch.git`
+2. Download ZIP: Extract the contents to your desired location.
+3. Open with GitHub Desktop.
+
+## Usage
+
+Compressed Code:
+
+- Located in the `dist` folder:
+- Navigate to the project folder on your local machine.
+- Open `index.min.html` to run the project.
+
+Uncompressed Code:
+
+- Navigate to the project folder on your local machine.
+- Open `index.html` to run the project.
+
+## Questions and Discussions
+
+This project is personal, and contributions are welcome. If you have questions or want to discuss any changes:
+
+- Email: poltoratskyialexander@gmail.com
+- [SimpleX Chat](https://simplex.chat/contact#/?v=1-4&smp=smp%3A%2F%2FZKe4uxF4Z_aLJJOEsC-Y6hSkXgQS5-oc442JQGkyP8M%3D%40smp17.simplex.im%2FzBpStVueK_9NcNKGgWWZuAw4EuibJks7%23%2F%3Fv%3D1-2%26dh%3DMCowBQYDK2VuAyEAzFBHs6ZksFf4chVCsrjlbqNb1HoVra57zWxeCdnjMUI%253D%26srv%3Dogtwfxyi3h2h5weftjjpjmxclhb5ugufa5rcyrmg7j4xlch7qsr5nuqd.onion) - optional
+
+## Developers
+
+- [poltoratskyi](https://github.com/poltoratskyi) - "Making magic with ❤️ and ☕"
+
+## License
+
+This project is licensed under the MIT License.
