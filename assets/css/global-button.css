@@ -1,0 +1,26 @@
+.button {
+  font-family: "Museo Sans 500 Medium";
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #c70101;
+  color: #fff;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: #9a0202;
+}
+
+.button_consultation {
+  padding: 15px 25px;
+}
+
+.button_form-consultation {
+  padding: 15px 56px;
+}
+
+.button_catalog {
+  padding: 15px 100px;
+  font-size: 16px;
+}

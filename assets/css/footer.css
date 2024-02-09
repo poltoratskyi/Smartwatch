@@ -1,0 +1,52 @@
+.footer {
+  position: relative;
+}
+
+.footer__iframe {
+  width: 100%;
+  height: 630px;
+  border: 0;
+}
+
+.footer__social-media {
+  padding: 40px 40px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #c70101;
+  text-align: center;
+}
+
+.footer__social-media-address {
+  font-size: 20px;
+  color: #fff;
+  font-family: "Museo Sans 500 Medium";
+  margin-bottom: 36px;
+}
+
+.footer__social-media-applications {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__social-media-applications-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  margin: 0 15px;
+}
+
+.footer__social-media-applications-link-icon {
+  height: 30px;
+}
+
+.footer__social-media-applications-link:hover {
+  background-color: #ff0000;
+}

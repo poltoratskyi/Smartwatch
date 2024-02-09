@@ -1,0 +1,47 @@
+@import url("./reset.css");
+@import url("./animate.css");
+
+/* @import url("./modal.css"); */
+
+@import url("./header.css");
+@import url("./advantages.css");
+@import url("./consultation.css");
+/* @import url("./carousel.css");
+@import url("./catalog.css"); */
+@import url("./review.css");
+@import url("./footer.css");
+
+@import url("./global-button.css");
+@import url("./global-container.css");
+@import url("./global-number.css");
+@import url("./utilities.css");
+
+@import url("./media.css");
+
+@font-face {
+  font-family: "Museo Sans 300 Light";
+  src: url("../fonts/MuseoSansCyrl-300.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Museo Sans 500 Medium";
+  src: url("../fonts/MuseoSansCyrl-500.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Museo Sans 700 Bold";
+  src: url("../fonts/MuseoSansCyrl-700.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Museo Sans 900 Black";
+  src: url("../fonts/MuseoSansCyrl-900.ttf");
+  font-weight: normal;
+  font-style: normal;
+}

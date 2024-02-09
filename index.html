@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <link
+      rel="shorcut icon"
+      href="assets/icons/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="assets/css/index.css" />
+
+    <title>Smart watch</title>
+  </head>
+
+  <body>
+    <header class="header" id="to-top">
+      <div class="container container_header">
+        <div class="header__content">
+          <picture class="header__content-logo">
+            <source srcset="assets/icons/Webp/logo.webp" type="image/webp" />
+
+            <img
+              class="header__content-logo-icon"
+              src="assets/icons/logo.png"
+              loading="eager"
+              alt="logo"
+            />
+          </picture>
+
+          <div class="header__content-official-partner">
+            <span>Официальный представитель</span> Garmin, Polar, Suunto
+          </div>
+
+          <div class="header__content-number">
+            <a class="global-number tel:+1(23)456789">+1 (23) 456 789</a>
+
+            <button class="button" type="button" data-modal="consultation">
+              ЗАКАЗАТЬ ЗВОНОК
+            </button>
+          </div>
+        </div>
+
+        <h1 class="header__title">Подбор пульсометра</h1>
+
+        <h2 class="header__subtitle">с учётом Вашего уровня подготовки</h2>
+
+        <div class="header__services">
+          <div class="header__services-content">
+            <picture>
+              <source
+                srcset="assets/icons/main_screen/Webp/timer.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="header__services-icon"
+                src="assets/icons/main_screen/timer.png"
+                loading="eager"
+                alt="timer"
+              />
+            </picture>
+
+            <span> Время подбора: 10 минут </span>
+          </div>
+
+          <div class="header__services-content">
+            <picture>
+              <source
+                srcset="assets/icons/main_screen/Webp/hand-cart.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="header__services-icon"
+                src="assets/icons/main_screen/hand-cart.png"
+                loading="eager"
+                alt="delivery"
+              />
+            </picture>
+
+            <span> Бесплатная доставка </span>
+          </div>
+
+          <div class="header__services-content">
+            <picture>
+              <source
+                srcset="assets/icons/main_screen/Webp/messages.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="header__services-icon"
+                src="assets/icons/main_screen/messages.png"
+                loading="eager"
+                alt="messages"
+              />
+            </picture>
+
+            <span> Ответим на все вопросы </span>
+          </div>
+        </div>
+
+        <div class="header__consultation">
+          <button
+            class="button button_consultation"
+            type="button"
+            data-modal="consultation"
+          >
+            ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ
+          </button>
+
+          <div class="header__consultation-item">
+            <span>или</span> <br />
+            <br />
+            <a class="header__consultation-link" href="#catalog"
+              >ПЕРЕЙТИ В КАТАЛОГ</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="advantages">
+      <div class="container container_advantages wow fadeInUp">
+        <h2 class="advantages__title">НАШИ ПРЕИМУЩЕСТВА</h2>
+
+        <div class="advantages__content">
+          <div class="advantages__content-item">
+            <picture>
+              <source
+                srcset="assets/icons/advantages/Webp/cup.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="advantages__content-item-icon"
+                src="assets/icons/advantages/cup.png"
+                loading="lazy"
+                alt="cup"
+              />
+            </picture>
+
+            <span class="advantages__content-item-title">Делимся опытом</span>
+            <p class="advantages__content-item-description">
+              Наши сотрудники всегда готовы поделиться своим опытом, так как
+              сами бегают полумарафоны, переплыли Босфор, готовятся к
+              соревнованиям по триатлону!
+            </p>
+          </div>
+
+          <div class="advantages__content-item">
+            <picture>
+              <source
+                srcset="assets/icons/advantages/Webp/heart.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="advantages__content-item-icon"
+                src="assets/icons/advantages/heart.png"
+                loading="lazy"
+                alt="heart"
+              />
+            </picture>
+
+            <span class="advantages__content-item-title"
+              >Заботимся о здоровье</span
+            >
+            <p class="advantages__content-item-description">
+              Мы работаем для того, чтобы Ваши занятия спортом шли на пользу
+              Вашему здоровью и были в радость Вам и Вашим близким!
+            </p>
+          </div>
+
+          <div class="advantages__content-item">
+            <picture>
+              <source
+                srcset="assets/icons/advantages/Webp/shoe.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="advantages__content-item-icon"
+                src="assets/icons/advantages/shoe.png"
+                loading="lazy"
+                alt="shoe"
+              />
+            </picture>
+
+            <span class="advantages__content-item-title">Учим бегать</span>
+
+            <p class="advantages__content-item-description">
+              Помогаем с обучением правильной технике бега! Дружим с крупнейшей
+              школой бега в мире -
+              <a class="advantages__content-item-description-label" href="#"
+                >I LOVE RUNNING.</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="consultation">
+      <div class="container container_consultation wow fadeInUp">
+        <h2 class="consultation__title">
+          Получите бесплатную консультацию по подбору пульсометра
+        </h2>
+
+        <h3 class="consultation__subtitle">
+          Просто заполните форму заявки<br />и мы перезвоним вам в течении 10
+          минут
+        </h3>
+
+        <form class="consultation__form" action="#">
+          <input
+            class="consultation__form-input"
+            type="text"
+            name="name"
+            placeholder="Введите ваше имя"
+            pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
+            title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
+            required
+          />
+          <input
+            class="consultation__form-input"
+            name="phone"
+            title="Телефон должен быть в формате +1(23) 456 789"
+            placeholder="Введите ваш телефон"
+            required
+          />
+          <input
+            class="consultation__form-input"
+            type="email"
+            name="email"
+            pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|mail\.ru|mail\.ua|yahoo\.com|yandex\.ru)$"
+            placeholder="Введите ваш Email"
+            title="Email должен быть в формате example@example.com"
+            required
+          />
+
+          <button class="button button_form-consultation" type="submit">
+            ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- <div class="carousel">
+
+
+
+      <div class="carousel_container">
+        <div class="carousel_slider">
+          <div><img src="assets/img/slide_1-min.jpg" alt="slide_1" /></div>
+          <div><img src="assets/img/slide_2-min.jpg" alt="slide_2" /></div>
+          <div><img src="assets/img/slide_3-min.jpg" alt="slide_3" /></div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <section class="catalog" id="catalog">
+      <div class="container container_catalog">
+        <h2 class="catalog__title">Каталог пульсометров</h2>
+
+        <ul class="catalog__tabs">
+          <li class="catalog__tab catalog__tab_active">
+            <span class="catalog__tab-label">Для фитнеса</span>
+          </li>
+          <li class="catalog__tab">
+            <span class="catalog__tab-label">Для бега</span>
+          </li>
+          <li class="catalog__tab">
+            <span class="catalog__tab-label">Для триатлона</span>
+          </li>
+        </ul>
+
+        <div class="catalog__wrapper">
+          <div class="catalog__content wow fadeInUp">
+            <picture class="catalog__content-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-1.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="catalog__content-icon"
+                src="assets/img/pulsometr-min-1.jpg"
+                loading="lazy"
+                alt="pulsometr"
+                type="image/jpg"
+              />
+            </picture>
+
+            <span class="catalog__content-label"> Пульсометр Polar FT1 </span>
+
+            <p class="catalog__content-description">
+              Для первых шагов в тренировках, основанных на сердечном ритме
+            </p>
+
+            <a class="catalog__content-link" href="#">ПОДРОБНЕЕ</a>
+
+            <div class="catalog__content-line"></div>
+
+            <span class="catalog__content-price">130 $</span>
+
+            <span class="catalog__content-sailPrice">100 $</span>
+
+            <br />
+
+            <button class="button button_catalog" type="button">Купить</button>
+          </div>
+
+          <div class="catalog__content wow fadeInUp">
+            <picture class="catalog__content-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-2.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="catalog__content-icon"
+                src="assets/img/pulsometr-min-2.jpg"
+                loading="lazy"
+                alt="pulsometr"
+                type="image/jpg"
+              />
+            </picture>
+
+            <span class="catalog__content-label"> Пульсометр Suunto M1 </span>
+
+            <p class="catalog__content-description">
+              Пульсометр начального уровня с комфортным тканевым ремешком
+            </p>
+
+            <a class="catalog__content-link" href="#">ПОДРОБНЕЕ</a>
+
+            <div class="catalog__content-line"></div>
+
+            <span class="catalog__content-price">180 $</span>
+
+            <span class="catalog__content-sailPrice">140 $</span>
+
+            <br />
+
+            <button class="button button_catalog" type="button">Купить</button>
+          </div>
+
+          <div class="catalog__content wow fadeInUp">
+            <picture class="catalog__content-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-3.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="catalog__content-icon"
+                src="assets/img/pulsometr-min-3.jpg"
+                loading="lazy"
+                alt="pulsometr"
+                type="image/jpg"
+              />
+            </picture>
+
+            <span class="catalog__content-label"> Пульсометр Polar FT2 </span>
+
+            <p class="catalog__content-description">
+              Улучшенная версия Polar FT1, имеющая следующие улучшения:
+            </p>
+
+            <a class="catalog__content-link" href="#">ПОДРОБНЕЕ</a>
+
+            <div class="catalog__content-line"></div>
+
+            <span class="catalog__content-price">150 $</span>
+
+            <span class="catalog__content-sailPrice">130 $</span>
+
+            <br />
+
+            <button class="button button_catalog" type="button">Купить</button>
+          </div>
+
+          <div class="catalog__content wow fadeInUp">
+            <picture class="catalog__content-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-4.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="catalog__content-icon"
+                src="assets/img/pulsometr-min-4.jpg"
+                loading="lazy"
+                alt="pulsometr"
+                type="image/jpg"
+              />
+            </picture>
+
+            <span class="catalog__content-label"> Пульсометр Polar FT3 </span>
+
+            <p class="catalog__content-description">
+              Улучшенная версия Polar FT2, имеющая следующие улучшения:
+            </p>
+
+            <a class="catalog__content-link" href="#">ПОДРОБНЕЕ</a>
+
+            <div class="catalog__content-line"></div>
+
+            <span class="catalog__content-price">150 $</span>
+
+            <span class="catalog__content-sailPrice">130 $</span>
+
+            <br />
+
+            <button class="button button_catalog" type="button">Купить</button>
+          </div>
+
+          <div class="catalog__content wow fadeInUp">
+            <picture class="catalog__content-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-5.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="catalog__content-icon"
+                src="assets/img/pulsometr-min-5.jpg"
+                loading="lazy"
+                alt="pulsometr"
+                type="image/jpg"
+              />
+            </picture>
+
+            <span class="catalog__content-label"> Пульсометр Suunto M2 </span>
+
+            <p class="catalog__content-description">
+              Улучшенная версия Suunto M1, имеющая следующие улучшения:
+            </p>
+
+            <a class="catalog__content-link" href="#">ПОДРОБНЕЕ</a>
+
+            <div class="catalog__content-line"></div>
+
+            <span class="catalog__content-price">150 $</span>
+
+            <span class="catalog__content-sailPrice">130 $</span>
+
+            <br />
+
+            <button class="button button_catalog" type="button">Купить</button>
+          </div>
+
+          <div class="catalog__content wow fadeInUp">
+            <picture class="catalog__content-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-6.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="catalog__content-icon"
+                src="assets/img/pulsometr-min-6.jpg"
+                loading="lazy"
+                alt="pulsometr"
+                type="image/jpg"
+              />
+            </picture>
+
+            <span class="catalog__content-label"> Пульсометр Polar FT4 </span>
+
+            <p class="catalog__content-description">
+              Улучшенная версия Polar FT3, имеющая следующие улучшения:
+            </p>
+
+            <a class="catalog__content-link" href="#">ПОДРОБНЕЕ</a>
+
+            <div class="catalog__content-line"></div>
+
+            <span class="catalog__content-price">190 $</span>
+
+            <span class="catalog__content-sailPrice">170 $</span>
+
+            <br />
+
+            <button class="button button_catalog" type="button">Купить</button>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section class="review">
+      <div class="container container_review wow fadeInUp">
+        <h2 class="review__title">Отзывы клиентов</h2>
+
+        <div class="review__item wow fadeInUp">
+          <picture>
+            <source
+              srcset="assets/img/Webp/feed_1-min.webp"
+              type="image/webp"
+            />
+
+            <img
+              class="review__item-icon"
+              src="assets/img/feed_1-min.png"
+              loading="lazy"
+              alt="feed_1"
+            />
+          </picture>
+
+          <div class="review__item-content wow fadeInUp">
+            <span class="review__item-content-name">Ирина Иванченко</span>
+            <br />
+
+            <span class="review__item-content-experience">2 полумарафона</span>
+
+            <br />
+            <br />
+
+            <p class="review__item-content-description">
+              Не знала, что себе купить - обратилась к ребятам из RunSmart -
+              подобрали пульсометр, который подошёл именно под мои цели и
+              финансовые возможности. Через некоторое время решила обновить
+              гаджет - не раздумывая обратилась туда же.
+
+              <br />
+              <br />
+
+              <span class="review__item-content-label">
+                Новые цели - новый гаджет!
+              </span>
+
+              <br />
+              <br />
+
+              <span class="review__item-content-label">
+                Спасибо, RunSmart!
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="review__item wow fadeInUp">
+          <picture>
+            <source
+              srcset="assets/img/Webp/feed_2-min.webp"
+              type="image/webp"
+            />
+
+            <img
+              class="review__item-icon"
+              src="assets/img/feed_2-min.png"
+              loading="lazy"
+              alt="feed_2"
+            />
+          </picture>
+
+          <div class="review__item-content">
+            <span class="review__item-content-name">Иван Сёмочкин</span>
+            <br />
+
+            <span class="review__item-content-experience">1 полумарафона</span>
+
+            <br />
+            <br />
+
+            <p class="review__item-content-description">
+              Крутая штука-пульсометр. Обычно без них бегал. Оказывается только
+              хуже себе делал. Купил пульсометр, ещё в подарок получил
+              тренировку. Со мной вместе провели первую тренировку, научили
+              пользоваться новым гаджетом. Также объяснили основы анатомии,
+              составили план тренировок на месяц вперёд.
+
+              <br />
+              <br />
+
+              <span class="review__item-content-label">
+                С ними подготовился к своему первому полумарафону!
+              </span>
+
+              <br />
+              <br />
+
+              <span class="review__item-content-label"> Спасибо!!! </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="review__item wow fadeInUp">
+          <picture>
+            <source
+              srcset="assets/img/Webp/feed_3-min.webp"
+              type="image/webp"
+            />
+
+            <img
+              class="review__item-icon"
+              src="assets/img/feed_3-min.png"
+              loading="lazy"
+              alt="feed_3"
+            />
+          </picture>
+
+          <div class="review__item-content">
+            <span class="review__item-content-name">Юлия Дашкина</span>
+            <br />
+
+            <span class="review__item-content-experience">2 полумарафона</span>
+
+            <br />
+            <br />
+
+            <p class="review__item-content-description">
+              Долго не могла начать бегать, т.к. до этого несколько раз
+              начинала, но становилось тяжело и я бросала. От друзей услышала о
+              RunSmart и о беге с контролем пульса и решила попробовать.
+
+              <br />
+              <br />
+
+              <span class="review__item-content-label">
+                Позвонила, ребята поинтересовались моими целями и подобрали
+                очень интересный вариант со скидкой! Теперь бегаю и наслаждаюсь
+                бегом! Пробежала уже 2 полумарафона и несколько более коротких
+                забегов и не намерена останавливаться!
+              </span>
+
+              <br />
+              <br />
+
+              <span class="review__item-content-label"> Спасибо!!! </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="conteiner">
+        <iframe
+          class="footer__iframe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d325518.6878083148!2d30.252511644798844!3d50.401699048025435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0x764931d2170146fe!2z0JrQuNC10LIsINCj0LrRgNCw0LjQvdCwLCAwMjAwMA!5e0!3m2!1sru!2snl!4v1680869037152!5m2!1sru!2snl"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
+
+        <div class="footer__social-media">
+          <address class="footer__social-media-address">Киев</address>
+
+          <a class="global-number" href="tel:+1(23)456789"> +1 (23) 456 789 </a>
+
+          <div class="footer__social-media-applications">
+            <a class="footer__social-media-applications-link" href="#">
+              <img
+                class="footer__social-media-applications-link-icon"
+                src="assets/icons/instagram.svg"
+                alt="instagram"
+              />
+            </a>
+
+            <a class="footer__social-media-applications-link" href="#">
+              <img
+                class="footer__social-media-applications-link-icon"
+                src="assets/icons/facebook.svg"
+                alt="facebook"
+              />
+            </a>
+
+            <a class="footer__social-media-applications-link" href="#">
+              <img
+                class="footer__social-media-applications-link-icon"
+                src="assets/icons/pinterest.svg"
+                alt="pinterest"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- <div class="windows">
+      <div class="windows_request" id="consultation">
+        <div class="windows_content">
+          <div class="windows_close">&times;</div>
+          <div class="windows_text">
+            <span>Просто заполните форму заявки</span><br />
+            <p>и мы перезвоним вам в течении 10 минут</p>
+          </div>
+          <div class="windows_input">
+            <form action="#">
+              <input
+                type="text"
+                name="name"
+                placeholder="Введите ваше имя"
+                pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
+                title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
+                required
+              />
+              <input
+                name="phone"
+                title="Телефон должен быть в формате +380XXXXXXXXX"
+                placeholder="Введите ваш телефон"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|mail\.ru|mail\.ua|yahoo\.com|yandex\.ru)$"
+                placeholder="Введите ваш Email"
+                title="Email должен быть в формате example@example.com"
+                required
+              />
+              <button type="submit">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="windows_request" id="order">
+        <div class="windows_content">
+          <div class="windows_close">&times;</div>
+          <div class="windows_text">
+            <span>Ваш заказ:</span><br />
+            <p>Пульсометр Polar FT1</p>
+          </div>
+          <div class="windows_input">
+            <form action="#">
+              <input
+                type="text"
+                name="name"
+                placeholder="Введите ваше имя"
+                pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
+                title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
+                required
+              />
+              <input
+                name="phone"
+                title="Телефон должен быть в формате +380XXXXXXXXX"
+                placeholder="Введите ваш телефон"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|mail\.ru|mail\.ua|yahoo\.com|yandex\.ru)$"
+                placeholder="Введите ваш Email"
+                title="Email должен быть в формате example@example.com"
+                required
+              />
+              <button type="submit">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="windows_thanks" id="mini">
+        <div class="windows_close">&times;</div>
+        <div class="windows_text_mini">
+          <span>Спасибо за вашу заявку!</span><br />
+          <p>Наш менеджер свяжется с вами в ближайшее время!</p>
+        </div>
+      </div>
+    </div> -->
+
+    <a class="scroll__to-up" href="#to-top">
+      <img
+        class="scroll__to-up-icon"
+        src="assets/icons/scroll_up.svg"
+        alt="scroll_up"
+      />
+    </a>
+
+    <script src="assets/js/wow.min.js"></script>
+
+    <script>
+      new WOW().init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+/* header section */
+
+.header {
+  background: url(../img/main-min.jpg) center center/cover no-repeat;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  font-size: 18px;
+  height: 60px;
+  margin-bottom: 100px;
+}
+
+.header__content-logo {
+  width: 250px;
+}
+
+.header__content-logo-icon {
+  width: 250px;
+  height: 45px;
+}
+
+.header__content-official-partner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Museo Sans 700 Bold";
+  height: 100%;
+}
+
+.header__content-number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.header__title {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 55px;
+  text-transform: uppercase;
+  font-family: "Museo Sans 700 Bold";
+  margin-bottom: 40px;
+}
+
+.header__subtitle {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: "Museo Sans 500 Medium";
+  margin-bottom: 80px;
+}
+
+.header__services {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 80px;
+}
+
+.header__services-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 90px;
+  font-family: "Museo Sans 500 Medium";
+  color: #fff;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.header__services-icon {
+  display: block;
+  width: 42px;
+  height: 46px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.header__consultation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__consultation-item {
+  font-family: "Museo Sans 500 Medium";
+  color: #fff;
+  text-align: center;
+  margin-top: 18px;
+}
+
+.header__consultation-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.header__consultation-link:hover {
+  color: #fff;
+}

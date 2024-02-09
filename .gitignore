@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+gulpfile.js
+
+index.js
+modal.css
+carousel.css
+catalog.css

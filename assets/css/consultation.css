@@ -1,0 +1,39 @@
+.consultation {
+  background: url(../img/consultation-min.jpg) center center/cover no-repeat;
+}
+
+.consultation__title {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Museo Sans 700 Bold";
+  font-size: 38px;
+  margin-bottom: 100px;
+  line-height: 48px;
+}
+
+.consultation__subtitle {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Museo Sans 500 Medium";
+  margin-bottom: 50px;
+}
+
+.consultation__form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 300px;
+}
+
+.consultation__form-input {
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  border: none;
+  padding: 0 20px;
+  color: #4b4b4b;
+  font-size: 14px;
+  font-family: "Museo Sans 300 Light";
+  margin-bottom: 15px;
+}

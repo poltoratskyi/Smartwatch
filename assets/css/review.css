@@ -1,0 +1,49 @@
+.review__title {
+  text-align: center;
+  font-size: 30px;
+  font-family: "Museo Sans 700 Bold";
+  text-transform: uppercase;
+  margin-bottom: 70px;
+}
+
+.review__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.review__item:last-child {
+  margin-bottom: 0px;
+}
+
+.review__item-icon {
+  width: 150px;
+  height: 150px;
+}
+
+.review__item-content {
+  width: 660px;
+}
+
+.review__item-content-name {
+  font-size: 18px;
+  font-family: "Museo Sans 700 Bold";
+}
+
+.review__item-content-experience {
+  color: #646464;
+  font-size: 14px;
+  font-family: "Museo Sans 300 Light";
+}
+
+.review__item-content-description {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Museo Sans 300 Light";
+}
+
+.review__item-content-label {
+  font-family: "Museo Sans 300 Light";
+  font-size: 16px;
+}
