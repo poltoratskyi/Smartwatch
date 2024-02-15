@@ -8,22 +8,30 @@
 
 .review__item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 30px;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 0 5px 0.5px rgba(0, 0, 0, 0.3);
 }
 
 .review__item:last-child {
   margin-bottom: 0px;
 }
+.review__item-block-img {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
 
-.review__item-icon {
+.review__item-block-img-icon {
   width: 150px;
   height: 150px;
 }
 
 .review__item-content {
-  width: 660px;
+  width: 69%;
 }
 
 .review__item-content-name {

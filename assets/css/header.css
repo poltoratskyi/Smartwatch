@@ -9,13 +9,21 @@
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  font-size: 18px;
   height: 60px;
   margin-bottom: 100px;
 }
 
+.header__content-logo,
+.header__content-official-partner,
+.header__content-number {
+  height: 100%;
+  width: 33%;
+}
+
 .header__content-logo {
-  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header__content-logo-icon {
@@ -26,23 +34,21 @@
 .header__content-official-partner {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
+  text-align: center;
+  font-size: 18px;
   font-family: "Museo Sans 700 Bold";
-  height: 100%;
 }
 
 .header__content-number {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
-  height: 100%;
+  align-items: center;
 }
 
 .header__title {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   color: #fff;
   font-size: 55px;
   text-transform: uppercase;
@@ -51,8 +57,7 @@
 }
 
 .header__subtitle {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   color: #fff;
   font-size: 30px;
   text-transform: uppercase;
@@ -72,7 +77,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 90px;
+  width: 108px;
   font-family: "Museo Sans 500 Medium";
   color: #fff;
   line-height: 20px;
