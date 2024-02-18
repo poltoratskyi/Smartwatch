@@ -5,7 +5,7 @@
 <p align="center">
    <img src="https://img.shields.io/badge/HTML-v5-orange" alt="HTML">
    <img src="https://img.shields.io/badge/CSS-v3-blue" alt="Css">
-   <img src="https://img.shields.io/badge/JavaScript-jQuery-yellow" alt="jQuery">
+   <img src="https://img.shields.io/badge/JavaScript-jQuery 3.7.1-yellow" alt="jQuery">
 </p>
 
 ## Description
