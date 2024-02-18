@@ -117,6 +117,7 @@
           <div class="header__consultation-item">
             <span>или</span> <br />
             <br />
+
             <a class="header__consultation-link" href="#catalog"
               >ПЕРЕЙТИ В КАТАЛОГ</a
             >
@@ -154,7 +155,7 @@
           </div>
 
           <div class="advantages__content-item">
-            <picture>
+            <picture class="wow pulse">
               <source
                 srcset="assets/icons/advantages/Webp/heart.webp"
                 type="image/webp"
@@ -223,25 +224,29 @@
             type="text"
             name="name"
             placeholder="Введите ваше имя"
-            pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
             title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
+            pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
             required
+            autocomplete="name"
           />
           <input
             class="consultation__form-input"
             name="phone"
             title="Телефон должен быть в формате +1(23) 456 789"
+            pattern="\+\d{1,2}\(\d{2}\) \d{3} \d{3}"
             placeholder="Введите ваш телефон"
             required
+            autocomplete="tel"
           />
           <input
             class="consultation__form-input"
             type="email"
             name="email"
-            pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|mail\.ru|mail\.ua|yahoo\.com|yandex\.ru)$"
             placeholder="Введите ваш Email"
             title="Email должен быть в формате example@example.com"
+            pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|mail\.ru|mail\.ua|yahoo\.com|yandex\.ru)$"
             required
+            autocomplete="email"
           />
 
           <button class="button button_form-consultation" type="submit">
@@ -293,7 +298,6 @@
                 src="assets/img/pulsometr-min-1.jpg"
                 loading="lazy"
                 alt="pulsometr"
-                type="image/jpg"
               />
             </picture>
 
@@ -326,7 +330,6 @@
                 src="assets/img/pulsometr-min-2.jpg"
                 loading="lazy"
                 alt="pulsometr"
-                type="image/jpg"
               />
             </picture>
 
@@ -359,7 +362,6 @@
                 src="assets/img/pulsometr-min-3.jpg"
                 loading="lazy"
                 alt="pulsometr"
-                type="image/jpg"
               />
             </picture>
 
@@ -392,7 +394,6 @@
                 src="assets/img/pulsometr-min-4.jpg"
                 loading="lazy"
                 alt="pulsometr"
-                type="image/jpg"
               />
             </picture>
 
@@ -425,7 +426,6 @@
                 src="assets/img/pulsometr-min-5.jpg"
                 loading="lazy"
                 alt="pulsometr"
-                type="image/jpg"
               />
             </picture>
 
@@ -458,7 +458,6 @@
                 src="assets/img/pulsometr-min-6.jpg"
                 loading="lazy"
                 alt="pulsometr"
-                type="image/jpg"
               />
             </picture>
 
@@ -646,27 +645,47 @@
 
           <div class="footer__social-media-applications">
             <a class="footer__social-media-applications-link" href="#">
-              <img
+              <svg
                 class="footer__social-media-applications-link-icon"
-                src="assets/icons/instagram.svg"
-                alt="instagram"
-              />
+                viewBox="0 0 256 256"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <g>
+                  <path
+                    d="M226.467714,256 L29.5322856,256 C13.2237152,256 0,242.771645 0,226.451622 L0,29.5325465 C0,13.2215704 13.2237152,0 29.5322856,0 L226.467714,0 C242.778546,0 256,13.2215704 256,29.5325465 L256,226.451622 C256,242.771645 242.778546,256 226.467714,256 L226.467714,256 Z M127.998869,78.7662732 C100.807364,78.7662732 78.767839,100.803732 78.767839,127.995477 C78.767839,155.182698 100.807364,177.231465 127.998869,177.231465 C155.190374,177.231465 177.234423,155.182698 177.234423,127.995477 C177.234423,100.803732 155.190374,78.7662732 127.998869,78.7662732 L127.998869,78.7662732 Z M226.467714,39.3774825 C226.467714,33.9427521 222.057548,29.5325465 216.611557,29.5325465 L187.079272,29.5325465 C181.640066,29.5325465 177.234423,33.9427521 177.234423,39.3774825 L177.234423,68.9213372 C177.234423,74.3560676 181.640066,78.7662732 187.079272,78.7662732 L216.611557,78.7662732 C222.057548,78.7662732 226.467714,74.3560676 226.467714,68.9213372 L226.467714,39.3774825 Z M226.467714,108.296558 L204.181672,108.296558 C205.805518,114.59976 206.764447,121.185667 206.764447,127.995477 C206.764447,171.504983 171.501206,206.766273 127.998869,206.766273 C84.4987941,206.766273 49.2332918,171.504983 49.2332918,127.995477 C49.2332918,121.185667 50.1967436,114.59976 51.8205896,108.296558 L29.5322856,108.296558 L29.5322856,216.613471 C29.5322856,222.043678 33.9424523,226.451622 39.3884427,226.451622 L216.611557,226.451622 C222.057548,226.451622 226.467714,222.043678 226.467714,216.613471 L226.467714,108.296558 Z"
+                    fill="#fff"
+                  ></path>
+                </g>
+              </svg>
             </a>
 
             <a class="footer__social-media-applications-link" href="#">
-              <img
+              <svg
                 class="footer__social-media-applications-link-icon"
-                src="assets/icons/facebook.svg"
-                alt="facebook"
-              />
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  fill="#fff"
+                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                ></path>
+              </svg>
             </a>
 
             <a class="footer__social-media-applications-link" href="#">
-              <img
+              <svg
                 class="footer__social-media-applications-link-icon"
-                src="assets/icons/pinterest.svg"
-                alt="pinterest"
-              />
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+              >
+                <path
+                  fill="#fff"
+                  d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z"
+                ></path>
+              </svg>
             </a>
           </div>
         </div>
@@ -755,13 +774,34 @@
       </div>
     </div> -->
 
-    <!-- <a class="scroll__to-up" href="#to-top">
-      <img
+    <a class="scroll__to-up" href="#to-top">
+      <svg
         class="scroll__to-up-icon"
-        src="assets/icons/scroll_up.svg"
-        alt="scroll_up"
-      />
-    </a> -->
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 438.533 438.533"
+      >
+        <path
+          fill="#ff0000"
+          d="M409.133,109.203c-19.608-33.592-46.205-60.189-79.798-79.796C295.736,9.801,259.058,0,219.273,0
+        c-39.781,0-76.47,9.801-110.063,29.407c-33.595,19.604-60.192,46.201-79.8,79.796C9.801,142.8,0,179.489,0,219.267
+        c0,39.78,9.804,76.463,29.407,110.062c19.607,33.592,46.204,60.189,79.799,79.798c33.597,19.605,70.283,29.407,110.063,29.407
+        s76.47-9.802,110.065-29.407c33.593-19.602,60.189-46.206,79.795-79.798c19.603-33.596,29.403-70.284,29.403-110.062
+        C438.533,179.485,428.732,142.795,409.133,109.203z M361.74,259.517l-29.123,29.129c-3.621,3.614-7.901,5.424-12.847,5.424
+        c-4.948,0-9.236-1.81-12.847-5.424l-87.654-87.653l-87.646,87.653c-3.616,3.614-7.898,5.424-12.847,5.424
+        c-4.95,0-9.233-1.81-12.85-5.424l-29.12-29.129c-3.617-3.607-5.426-7.898-5.426-12.847c0-4.942,1.809-9.227,5.426-12.848
+        l129.62-129.616c3.617-3.617,7.898-5.424,12.847-5.424s9.238,1.807,12.846,5.424L361.74,233.822
+        c3.613,3.621,5.424,7.905,5.424,12.848C367.164,251.618,365.357,255.909,361.74,259.517z"
+        />
+      </svg>
+    </a>
+
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+
+    <script src="assets/js/jquery.maskedinput.min.js"></script>
+
+    <script src="assets/js/index.js"></script>
 
     <script src="assets/js/wow.min.js"></script>
 

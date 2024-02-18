@@ -12,16 +12,15 @@
 }
 
 .advantages__content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
 .advantages__content-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
 }
 
 .advantages__content-item-icon {

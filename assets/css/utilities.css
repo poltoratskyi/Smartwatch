@@ -1,11 +1,7 @@
 .scroll__to-up {
   display: none;
   position: fixed;
+  width: 50px;
   bottom: 40px;
   right: 40px;
-  width: 40px;
-}
-
-.scroll__to-up-icon {
-  width: 100%;
 }
