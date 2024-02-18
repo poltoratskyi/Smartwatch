@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // Инициализация Slick Carousel для слайдера
-  /*   $(".carousel_slider").slick({
+  $(".carousel___content-slider").slick({
     autoplay: true,
     autoplaySpeed: 2500,
     speed: 1200,
@@ -21,7 +21,7 @@ $(document).ready(function () {
         },
       },
     ],
-  }); */
+  });
 
   // Обработчик клика на вкладках каталога
   /*   $("ul.catalog_tabs").on("click", "li:not(.catalog_tab.active)", function () {

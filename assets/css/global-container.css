@@ -15,6 +15,11 @@
   padding: 80px 0px 90px;
 }
 
+.container__carousel {
+  padding: 100px 0px 0px;
+  position: relative;
+}
+
 .container_review {
   padding: 60px 0px;
 }
