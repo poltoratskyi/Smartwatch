@@ -3,6 +3,16 @@
   .container {
     width: 80%;
   }
+
+  /* catalog section */
+
+  .catalog__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .catalog__content {
+    width: 300px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -41,6 +51,16 @@
   }
   .consultation__subtitle {
     margin-bottom: 35px;
+  }
+
+  /* catalog section */
+
+  .catalog__wrapper {
+    gap: 20px;
+  }
+
+  .catalog__content {
+    width: auto;
   }
 
   /* review section */
@@ -156,6 +176,35 @@
     text-align: center;
     width: 70%;
   }
+
+  /* catalog section */
+
+  .catalog__tabs {
+    flex-direction: column;
+    align-items: center;
+    transform: skew(0deg);
+    margin-bottom: 35px;
+  }
+
+  .catalog__tab {
+    margin-right: 0px;
+  }
+
+  .catalog__tab-label {
+    transform: skew(0deg);
+  }
+
+  .catalog__title {
+    margin-bottom: 35px;
+  }
+
+  .catalog__wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .catalog__content {
+    width: 300px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -198,6 +247,7 @@
   }
 
   /* advantages section */
+
   .container_advantages {
     padding: 20px 0px 20px;
   }
@@ -224,6 +274,12 @@
   .consultation__subtitle {
     font-size: 15px;
     margin-bottom: 25px;
+  }
+
+  /* catalog section */
+
+  .container_catalog {
+    padding: 20px 0px 20px;
   }
 
   /* review section */

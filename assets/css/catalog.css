@@ -1,0 +1,122 @@
+.catalog__title {
+  font-size: 30px;
+  font-family: "Museo Sans 700 Bold";
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 70px;
+}
+
+.catalog__tabs {
+  display: flex;
+  justify-content: center;
+  transform: skew(-25deg);
+  margin-bottom: 50px;
+}
+
+.catalog__tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 50px;
+  border: 1px solid #d0d0d0;
+  color: #6b6b6b;
+  font-size: 18px;
+  font-family: "Museo Sans 500 Medium";
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.catalog__tab:last-child {
+  margin-right: 0px;
+}
+
+.catalog__tab:hover {
+  color: #fff;
+  border: 1px solid #c70101;
+  background-color: #c70101;
+}
+
+.catalog__tab-label {
+  transform: skew(25deg);
+}
+
+.catalog__tab_active {
+  border: #c70101;
+  color: #fff;
+  background-color: #c70101;
+}
+
+.catalog__wrapper {
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.catalog__content {
+  display: grid;
+  justify-items: center;
+  border: 2px solid #d0d0d0;
+  padding: 20px 20px;
+}
+
+.catalog__content-img {
+  margin-bottom: 20px;
+}
+
+.catalog__content-icon {
+  height: 250px;
+  width: 230px;
+}
+
+.catalog__content-label {
+  color: #0d0d0d;
+  font-size: 16px;
+  font-family: "Museo Sans 700 Bold";
+  margin-bottom: 10px;
+}
+
+.catalog__content-description {
+  color: #0d0d0d;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: "Museo Sans 300 Light";
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.catalog__content-link {
+  text-decoration: underline;
+  color: #c70101;
+  text-align: center;
+  font-size: 14px;
+  font-family: "Museo Sans 500 Medium";
+  margin-bottom: 20px;
+}
+
+.catalog__content-link:hover {
+  text-decoration: none;
+}
+
+.catalog__content-line {
+  width: 90%;
+  border: 1px solid #d0d0d0;
+  margin-bottom: 20px;
+}
+
+.catalog__content-sailPrice {
+  font-size: 20px;
+  font-family: "Museo Sans 700 Bold";
+  color: #0d0d0d;
+  margin-bottom: 20px;
+}
+
+.catalog__content-price {
+  color: #555;
+  font-size: 14px;
+  font-family: "Museo Sans 300 Light";
+  text-decoration: line-through;
+}
