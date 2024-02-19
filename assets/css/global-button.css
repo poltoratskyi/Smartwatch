@@ -16,8 +16,10 @@
   padding: 15px 25px;
 }
 
-.button_form-consultation {
+.button_form-consultation,
+.button_form-callback {
   padding: 15px 56px;
+  width: 100%;
 }
 
 .button_catalog {

@@ -25,14 +25,18 @@
   margin-bottom: 36px;
 }
 
-.footer__social-media-applications {
-  margin-top: 40px;
-  display: flex;
+.social-media-applications {
+  display: none;
   justify-content: center;
   align-items: center;
 }
 
-.footer__social-media-applications-link {
+.social-media-applications_footer {
+  display: flex;
+  margin-top: 35px;
+}
+
+.social-media-applications__link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,10 +47,14 @@
   margin: 0 15px;
 }
 
-.footer__social-media-applications-link-icon {
+.social-media-applications__link_modal {
+  border: 2px solid #c70101;
+}
+
+.social-media-applications__link-icon {
   height: 30px;
 }
 
-.footer__social-media-applications-link:hover {
+.social-media-applications__link:hover {
   background-color: #ff0000;
 }

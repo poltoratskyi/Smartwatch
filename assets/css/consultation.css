@@ -11,18 +11,30 @@
   line-height: 48px;
 }
 
+.consultation__wrapper {
+  width: 380px;
+}
+
 .consultation__subtitle {
+  margin-bottom: 25px;
+}
+
+.consultation__subtitle-label {
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
+  font-family: "Museo Sans 700 Bold";
+}
+
+.consultation__subtitle-description {
+  color: #fff;
+  font-size: 18px;
   font-family: "Museo Sans 500 Medium";
-  margin-bottom: 50px;
 }
 
 .consultation__form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 300px;
 }
 
 .consultation__form-input {

@@ -213,46 +213,57 @@
           Получите бесплатную консультацию по подбору пульсометра
         </h2>
 
-        <h3 class="consultation__subtitle wow fadeInUp">
-          Просто заполните форму заявки<br />и мы перезвоним вам в течении 10
-          минут
-        </h3>
+        <div class="consultation__wrapper">
+          <h3 class="consultation__subtitle wow fadeInUp">
+            <span class="consultation__subtitle-label">
+              Просто заполните форму заявки
+            </span>
 
-        <form class="consultation__form wow fadeInUp" action="#">
-          <input
-            class="consultation__form-input"
-            type="text"
-            name="name"
-            placeholder="Введите ваше имя"
-            title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
-            pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
-            required
-            autocomplete="name"
-          />
-          <input
-            class="consultation__form-input"
-            name="phone"
-            title="Телефон должен быть в формате +1(23) 456 789"
-            pattern="\+\d{1,2}\(\d{2}\) \d{3} \d{3}"
-            placeholder="Введите ваш телефон"
-            required
-            autocomplete="tel"
-          />
-          <input
-            class="consultation__form-input"
-            type="email"
-            name="email"
-            placeholder="Введите ваш Email"
-            title="Email должен быть в формате example@example.com"
-            pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|mail\.ru|mail\.ua|yahoo\.com|yandex\.ru)$"
-            required
-            autocomplete="email"
-          />
+            <br />
 
-          <button class="button button_form-consultation" type="submit">
-            ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ
-          </button>
-        </form>
+            <br />
+
+            <p class="consultation__subtitle-description">
+              и мы перезвоним вам в течении 10 минут
+            </p>
+          </h3>
+
+          <form class="consultation__form wow fadeInUp" action="#">
+            <input
+              class="consultation__form-input"
+              type="text"
+              name="name"
+              placeholder="Введите ваше имя"
+              title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
+              pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
+              required
+              autocomplete="name"
+            />
+            <input
+              class="consultation__form-input"
+              name="phone"
+              title="Телефон должен быть в формате +1(23) 456 789"
+              pattern="\+\d{1,2}\(\d{2}\) \d{3} \d{3}"
+              placeholder="Введите ваш телефон"
+              required
+              autocomplete="tel"
+            />
+            <input
+              class="consultation__form-input"
+              type="email"
+              name="email"
+              placeholder="Введите ваш Email"
+              title="Email должен быть в формате example@example.com"
+              pattern="^[a-zA-Z][A-Za-z0-9._\-]+@[A-Za-z0-9]+\.[A-Za-z]{2,6}\b"
+              required
+              autocomplete="email"
+            />
+
+            <button class="button button_form-consultation" type="submit">
+              ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ
+            </button>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -260,9 +271,44 @@
       <div class="container container__carousel">
         <div class="carousel__content">
           <div class="carousel___content-slider">
-            <div><img src="assets/img/slide_1-min.jpg" alt="slide_1" /></div>
-            <div><img src="assets/img/slide_2-min.jpg" alt="slide_2" /></div>
-            <div><img src="assets/img/slide_3-min.jpg" alt="slide_3" /></div>
+            <picture>
+              <source
+                srcset="assets/img/Webp/slide_1-min.webp"
+                type="image/webp"
+              />
+
+              <img
+                src="assets/img/slide_1-min.jpg"
+                loading="lazy"
+                alt="slide_1"
+              />
+            </picture>
+
+            <picture>
+              <source
+                srcset="assets/img/Webp/slide_2-min.webp"
+                type="image/webp"
+              />
+
+              <img
+                src="assets/img/slide_2-min.jpg"
+                loading="lazy"
+                alt="slide_2"
+              />
+            </picture>
+
+            <picture>
+              <source
+                srcset="assets/img/Webp/slide_3-min.webp"
+                type="image/webp"
+              />
+
+              <img
+                src="assets/img/slide_3-min.jpg"
+                loading="lazy"
+                alt="slide_3"
+              />
+            </picture>
           </div>
         </div>
       </div>
@@ -642,10 +688,12 @@
 
           <a class="global-number" href="tel:+1(23)456789"> +1 (23) 456 789 </a>
 
-          <div class="footer__social-media-applications">
-            <a class="footer__social-media-applications-link" href="#">
+          <div
+            class="social-media-applications social-media-applications_footer"
+          >
+            <a class="social-media-applications__link" href="#">
               <svg
-                class="footer__social-media-applications-link-icon"
+                class="social-media-applications__link-icon"
                 viewBox="0 0 256 256"
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -660,9 +708,9 @@
               </svg>
             </a>
 
-            <a class="footer__social-media-applications-link" href="#">
+            <a class="social-media-applications__link" href="#">
               <svg
-                class="footer__social-media-applications-link-icon"
+                class="social-media-applications__link-icon"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
@@ -674,9 +722,9 @@
               </svg>
             </a>
 
-            <a class="footer__social-media-applications-link" href="#">
+            <a class="social-media-applications__link" href="#">
               <svg
-                class="footer__social-media-applications-link-icon"
+                class="social-media-applications__link-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 384 512"
               >
@@ -691,44 +739,118 @@
       </div>
     </footer>
 
-    <!-- <div class="windows">
-      <div class="windows_request" id="consultation">
-        <div class="windows_content">
-          <div class="windows_close">&times;</div>
-          <div class="windows_text">
-            <span>Просто заполните форму заявки</span><br />
-            <p>и мы перезвоним вам в течении 10 минут</p>
+    <div class="overlay">
+      <div class="modal-callback">
+        <div class="modal-callback__wrapper">
+          <div class="modal-callback__close">&times;</div>
+          <div class="modal-callback__title">
+            <span class="modal-callback__title-label">
+              Просто заполните форму заявки
+            </span>
+
+            <br />
+
+            <br />
+
+            <p class="modal-callback__title-description">
+              и мы перезвоним вам в течении 10 минут
+            </p>
           </div>
-          <div class="windows_input">
-            <form action="#">
-              <input
-                type="text"
-                name="name"
-                placeholder="Введите ваше имя"
-                pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
-                title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
-                required
-              />
-              <input
-                name="phone"
-                title="Телефон должен быть в формате +380XXXXXXXXX"
-                placeholder="Введите ваш телефон"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|mail\.ru|mail\.ua|yahoo\.com|yandex\.ru)$"
-                placeholder="Введите ваш Email"
-                title="Email должен быть в формате example@example.com"
-                required
-              />
-              <button type="submit">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
-            </form>
+
+          <form class="modal-callback__form" action="#">
+            <input
+              class="modal-callback__form-input"
+              type="text"
+              name="name"
+              placeholder="Введите ваше имя"
+              title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
+              pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
+              required
+              autocomplete="name"
+            />
+            <input
+              class="modal-callback__form-input"
+              name="phone"
+              title="Телефон должен быть в формате +1(23) 456 789"
+              pattern="\+\d{1,2}\(\d{2}\) \d{3} \d{3}"
+              placeholder="Введите ваш телефон"
+              required
+              autocomplete="tel"
+            />
+            <input
+              class="modal-callback__form-input"
+              type="email"
+              name="email"
+              placeholder="Введите ваш Email"
+              title="Email должен быть в формате example@example.com"
+              pattern="^[a-zA-Z][A-Za-z0-9._\-]+@[A-Za-z0-9]+\.[A-Za-z]{2,6}\b"
+              required
+              autocomplete="email"
+            />
+
+            <button class="button button_form-callback" type="submit">
+              ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ
+            </button>
+          </form>
+
+          <div class="social-media-applications">
+            <a
+              class="social-media-applications__link social-media-applications__link_modal"
+              href="#"
+            >
+              <svg
+                class="social-media-applications__link-icon"
+                viewBox="0 0 256 256"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <g>
+                  <path
+                    d="M226.467714,256 L29.5322856,256 C13.2237152,256 0,242.771645 0,226.451622 L0,29.5325465 C0,13.2215704 13.2237152,0 29.5322856,0 L226.467714,0 C242.778546,0 256,13.2215704 256,29.5325465 L256,226.451622 C256,242.771645 242.778546,256 226.467714,256 L226.467714,256 Z M127.998869,78.7662732 C100.807364,78.7662732 78.767839,100.803732 78.767839,127.995477 C78.767839,155.182698 100.807364,177.231465 127.998869,177.231465 C155.190374,177.231465 177.234423,155.182698 177.234423,127.995477 C177.234423,100.803732 155.190374,78.7662732 127.998869,78.7662732 L127.998869,78.7662732 Z M226.467714,39.3774825 C226.467714,33.9427521 222.057548,29.5325465 216.611557,29.5325465 L187.079272,29.5325465 C181.640066,29.5325465 177.234423,33.9427521 177.234423,39.3774825 L177.234423,68.9213372 C177.234423,74.3560676 181.640066,78.7662732 187.079272,78.7662732 L216.611557,78.7662732 C222.057548,78.7662732 226.467714,74.3560676 226.467714,68.9213372 L226.467714,39.3774825 Z M226.467714,108.296558 L204.181672,108.296558 C205.805518,114.59976 206.764447,121.185667 206.764447,127.995477 C206.764447,171.504983 171.501206,206.766273 127.998869,206.766273 C84.4987941,206.766273 49.2332918,171.504983 49.2332918,127.995477 C49.2332918,121.185667 50.1967436,114.59976 51.8205896,108.296558 L29.5322856,108.296558 L29.5322856,216.613471 C29.5322856,222.043678 33.9424523,226.451622 39.3884427,226.451622 L216.611557,226.451622 C222.057548,226.451622 226.467714,222.043678 226.467714,216.613471 L226.467714,108.296558 Z"
+                    fill="#c70101"
+                  ></path>
+                </g>
+              </svg>
+            </a>
+
+            <a
+              class="social-media-applications__link social-media-applications__link_modal"
+              href="#"
+            >
+              <svg
+                class="social-media-applications__link-icon"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  fill="#c70101"
+                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                ></path>
+              </svg>
+            </a>
+
+            <a
+              class="social-media-applications__link social-media-applications__link_modal"
+              href="#"
+            >
+              <svg
+                class="social-media-applications__link-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+              >
+                <path
+                  fill="#c70101"
+                  d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z"
+                ></path>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
-      <div class="windows_request" id="order">
+
+      <!-- <div class="windows_request" id="order">
         <div class="windows_content">
           <div class="windows_close">&times;</div>
           <div class="windows_text">
@@ -754,7 +876,8 @@
               <input
                 type="email"
                 name="email"
-                pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|mail\.ru|mail\.ua|yahoo\.com|yandex\.ru)$"
+    pattern="^[A-Za-z0-9][A-Za-z0-9\.-_]*[A-Za-z0-9]*@([A-Za-z0-9]+([A-Za-z0-9-]*[A-Za-z0-9]+)*\.)+[A-Za-z]*$"
+
                 placeholder="Введите ваш Email"
                 title="Email должен быть в формате example@example.com"
                 required
@@ -763,15 +886,22 @@
             </form>
           </div>
         </div>
+      </div>-->
+    </div>
+
+    <div class="success">
+      <div class="success__close">&times;</div>
+      <div class="success__title">
+        <span class="success__title-label">Спасибо за вашу заявку! </span>
+
+        <br />
+        <br />
+
+        <p class="success__title-description">
+          Наш менеджер свяжется с вами в ближайшее время!
+        </p>
       </div>
-      <div class="windows_thanks" id="mini">
-        <div class="windows_close">&times;</div>
-        <div class="windows_text_mini">
-          <span>Спасибо за вашу заявку!</span><br />
-          <p>Наш менеджер свяжется с вами в ближайшее время!</p>
-        </div>
-      </div>
-    </div> -->
+    </div>
 
     <a class="scroll__to-up" href="#to-top">
       <svg

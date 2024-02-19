@@ -139,6 +139,10 @@
     margin-bottom: 60px;
   }
 
+  .consultation__wrapper {
+    width: 100%;
+  }
+
   .consultation__subtitle {
     font-size: 18px;
     line-height: 24px;
@@ -205,6 +209,24 @@
 
   .catalog__content {
     width: 300px;
+  }
+
+  /* modal section */
+
+  .modal-callback__close {
+    right: 10px;
+  }
+
+  .success__close {
+    left: 5px;
+  }
+
+  .success {
+    width: 50%;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -315,5 +337,45 @@
 
   .footer__social-media-applications {
     margin-top: 20px;
+  }
+
+  /* modal section */
+
+  .modal-callback__title {
+    margin-bottom: 0px;
+  }
+
+  .modal-callback {
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+  }
+
+  .modal-callback__wrapper {
+    display: grid;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .modal-callback__close {
+    right: 20px;
+    top: 10px;
+  }
+
+  .success__close {
+    left: 5px;
+  }
+
+  .success {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transform: translateX(0);
+  }
+
+  .social-media-applications {
+    display: flex;
   }
 }

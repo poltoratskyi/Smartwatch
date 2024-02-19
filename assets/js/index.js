@@ -37,18 +37,68 @@ $(document).ready(function () {
   }); */
 
   // Обработчик клика на элементе вызова консультации
-  /*  $("[data-modal=consultation]").on("click", function (e) {
+
+  $("[data-modal=consultation]").on("click", function (e) {
     e.preventDefault();
-    $(".windows, #consultation").fadeIn("slow");
-  }); */
+    $(".overlay").fadeIn("slow");
+  });
+
+  // Обработчик события отправки формы
+
+  $(".consultation__form, .modal-callback__form").submit(function (e) {
+    e.preventDefault();
+
+    let isValid = true;
+
+    // Поиск инпутов и их итерация
+    $(this)
+      .find(".consultation__form-input, .modal-callback__form-input")
+      .each(function () {
+        // Проверка валидности каждого найденного инпута
+        // Метод checkValidity проверяет валидность инпута по атрибутам HTML
+        if (!this.checkValidity()) {
+          // Если одно поле невалидно - false
+          isValid = false;
+          // Остановка итерации
+          return false;
+        }
+      });
+
+    // Если все поля валидны - true
+    if (isValid) {
+      $(".overlay").fadeOut("slow");
+      // Метод val("") устанавливает инпуты в пустую строку
+      $(".consultation__form-input, .modal-callback__form-input").val("");
+      $(".success").fadeIn("slow");
+      setTimeout(() => {
+        $(".success").fadeOut("slow");
+      }, 6000);
+    }
+  });
 
   // Обработчик клика на элементе закрытия окон
-  /*  $(".windows_close").on("click", function (e) {
+
+  $(".modal-callback__close").on("click", function (e) {
     e.preventDefault();
-    $(".windows, #consultation, #mini, #order").fadeOut("slow");
-  }); */
+    $(".overlay").fadeOut("slow");
+  });
+
+  // Обработчик кнопки закрытия окона
+
+  $(document).on("keydown", function (e) {
+    if (e.key === "Escape") {
+      $(".overlay").fadeOut("slow");
+      $(".success").fadeOut("slow");
+    }
+  });
+
+  $(".success__close").on("click", function (e) {
+    e.preventDefault();
+    $(".success").fadeOut("slow");
+  });
 
   // Обработчик клика на кнопках каталога
+
   /* $(".catalog_footer button").each(function (id) {
     $(this).on("click", function (e) {
       e.preventDefault();
