@@ -319,19 +319,21 @@
         <h2 class="catalog__title">Каталог пульсометров</h2>
 
         <ul class="catalog__tabs">
-          <li class="catalog__tab catalog__tab_active">
+          <li id="beginners" class="catalog__tab catalog__tab_active">
             <span class="catalog__tab-label">Для фитнеса</span>
           </li>
-          <li class="catalog__tab">
+
+          <li id="runners" class="catalog__tab">
             <span class="catalog__tab-label">Для бега</span>
           </li>
-          <li class="catalog__tab">
+
+          <li id="proffessional" class="catalog__tab">
             <span class="catalog__tab-label">Для триатлона</span>
           </li>
         </ul>
 
         <div class="catalog__wrapper">
-          <div class="catalog__content wow fadeInUp">
+          <div data-modal="runners" class="catalog__content wow fadeInUp">
             <picture class="catalog__content-img">
               <source
                 srcset="assets/img/Webp/pulsometr-min-1.webp"
@@ -363,7 +365,7 @@
             <button class="button button_catalog" type="button">Купить</button>
           </div>
 
-          <div class="catalog__content wow fadeInUp">
+          <div data-modal="proffessional" class="catalog__content wow fadeInUp">
             <picture class="catalog__content-img">
               <source
                 srcset="assets/img/Webp/pulsometr-min-2.webp"
@@ -395,7 +397,7 @@
             <button class="button button_catalog" type="button">Купить</button>
           </div>
 
-          <div class="catalog__content wow fadeInUp">
+          <div data-modal="runners" class="catalog__content wow fadeInUp">
             <picture class="catalog__content-img">
               <source
                 srcset="assets/img/Webp/pulsometr-min-3.webp"
@@ -427,7 +429,7 @@
             <button class="button button_catalog" type="button">Купить</button>
           </div>
 
-          <div class="catalog__content wow fadeInUp">
+          <div data-modal="runners" class="catalog__content wow fadeInUp">
             <picture class="catalog__content-img">
               <source
                 srcset="assets/img/Webp/pulsometr-min-4.webp"
@@ -459,7 +461,7 @@
             <button class="button button_catalog" type="button">Купить</button>
           </div>
 
-          <div class="catalog__content wow fadeInUp">
+          <div data-modal="proffessional" class="catalog__content wow fadeInUp">
             <picture class="catalog__content-img">
               <source
                 srcset="assets/img/Webp/pulsometr-min-5.webp"
@@ -491,7 +493,7 @@
             <button class="button button_catalog" type="button">Купить</button>
           </div>
 
-          <div class="catalog__content wow fadeInUp">
+          <div data-modal="runners" class="catalog__content wow fadeInUp">
             <picture class="catalog__content-img">
               <source
                 srcset="assets/img/Webp/pulsometr-min-6.webp"
@@ -912,7 +914,7 @@
         viewBox="0 0 438.533 438.533"
       >
         <path
-          fill="#000"
+          fill="#c70101"
           d="M409.133,109.203c-19.608-33.592-46.205-60.189-79.798-79.796C295.736,9.801,259.058,0,219.273,0
         c-39.781,0-76.47,9.801-110.063,29.407c-33.595,19.604-60.192,46.201-79.8,79.796C9.801,142.8,0,179.489,0,219.267
         c0,39.78,9.804,76.463,29.407,110.062c19.607,33.592,46.204,60.189,79.799,79.798c33.597,19.605,70.283,29.407,110.063,29.407
@@ -935,9 +937,5 @@
     <script src="assets/js/wow.js"></script>
 
     <script src="assets/js/index.js"></script>
-
-    <script>
-      new WOW().init();
-    </script>
   </body>
 </html>

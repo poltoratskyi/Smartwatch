@@ -54,6 +54,7 @@
   align-items: start;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  min-height: 550px;
 }
 
 .catalog__content {
@@ -61,6 +62,11 @@
   justify-items: center;
   border: 2px solid #d0d0d0;
   padding: 20px 20px;
+  animation-duration: 1s;
+}
+
+.catalog__content_hidden {
+  display: none;
 }
 
 .catalog__content-img {
