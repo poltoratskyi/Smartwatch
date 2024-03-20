@@ -4,46 +4,105 @@
   background: url(../img/main-min.jpg) center center/cover no-repeat;
 }
 
-.header__content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #fff;
-  height: 60px;
-  margin-bottom: 100px;
+.decor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 5;
+  transition: background-color 0.5s ease;
 }
 
-.header__content-logo,
-.header__content-official-partner,
-.header__content-number {
-  height: 100%;
-  width: 33%;
+.header__content {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 20px 0px;
 }
 
 .header__content-logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  margin-right: 40px;
 }
 
-.header__content-logo-icon {
-  width: 250px;
-  height: 45px;
-}
-
-.header__content-official-partner {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  font-size: 18px;
+.header__content-logo-descr {
+  font-size: 30px;
   font-family: "Museo Sans 700 Bold";
 }
 
-.header__content-number {
+.header__content-menu-wrapper {
+  display: none;
+}
+
+.header__content-block-menu {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  width: 100%;
+}
+
+.header__content-menu-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.header__content-menu-item {
+  font-size: 16px;
+  color: #fff;
+  font-family: "Museo Sans 500 Medium";
+}
+
+.header__content-menu-item-link,
+.header__content-more {
+  padding: 10px;
+}
+
+[data-modal="menuIcon"] {
+  display: none;
+}
+
+.header__content-menu-item-link:last-child {
+  position: relative;
+}
+
+.header__content-menu-item-link:hover,
+.header__content-more:hover,
+.header__content-dropdown-item:hover {
+  border-bottom: 2px solid #c70101;
+  transition: border-color 0.3s ease;
+}
+
+.header__content-dropdown {
+  position: absolute;
+  display: none;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 100%;
+}
+
+.header__content-dropdown-item-link {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+.header__content-dropdown-item {
+  height: 40px;
+}
+
+#call-header,
+#basket-header {
+  margin-right: 10px;
+}
+
+.header__content-basket-link {
+  display: flex;
   align-items: center;
 }
 

@@ -1,22 +1,23 @@
-@import url("./reset.css");
-@import url("./animate.css");
+@import url("reset.css");
+@import url("animate.css");
 
-@import url("./modal.css");
+@import url("modal.css");
 
-@import url("./header.css");
-@import url("./advantages.css");
-@import url("./consultation.css");
-@import url("./carousel.css");
-@import url("./catalog.css");
-@import url("./review.css");
-@import url("./footer.css");
+@import url("header.css");
+@import url("hamburger.css");
+@import url("advantages.css");
+@import url("consultation.css");
+@import url("carousel.css");
+@import url("catalog.css");
+@import url("review.css");
+@import url("footer.css");
 
-@import url("./global-button.css");
-@import url("./global-container.css");
-@import url("./global-number.css");
-@import url("./utilities.css");
+@import url("global-button.css");
+@import url("global-container.css");
+@import url("global-number.css");
+@import url("utilities.css");
 
-@import url("./media.css");
+@import url("media.css");
 
 @font-face {
   font-family: "Museo Sans 300 Light";

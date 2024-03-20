@@ -12,6 +12,22 @@
   background-color: #9a0202;
 }
 
+.button_header-call {
+  border-radius: 30px;
+  border: 2px solid #c70101;
+  transition: border-color 0.3s ease;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.button_header-basket {
+  border-radius: 30px;
+  border: 2px solid #c70101;
+  display: flex;
+  align-items: center;
+}
+
 .button_consultation {
   padding: 15px 25px;
 }
@@ -23,6 +39,6 @@
 }
 
 .button_catalog {
-  padding: 15px 100px;
+  padding: 15px 30px;
   font-size: 16px;
 }

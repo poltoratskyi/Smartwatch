@@ -6,6 +6,12 @@
   margin-bottom: 70px;
 }
 
+.review-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .review__item {
   display: flex;
   align-items: center;
@@ -19,6 +25,7 @@
 .review__item:last-child {
   margin-bottom: 0px;
 }
+
 .review__item-block-img {
   display: flex;
   justify-content: center;

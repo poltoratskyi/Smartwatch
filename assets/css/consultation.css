@@ -34,7 +34,6 @@
 .consultation__form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
 .consultation__form-input {
