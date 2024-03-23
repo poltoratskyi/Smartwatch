@@ -19,7 +19,7 @@
   }
 
   #call-header {
-    margin-right: 0px;
+    margin: 1px;
   }
 
   .button_header-call {
@@ -45,7 +45,7 @@
     padding: 5px;
   }
 
-  .header__content-logo-descr {
+  .header__content-logo-link-descr {
     display: none;
   }
 
@@ -86,44 +86,62 @@
 @media (max-width: 767px) {
   /* header section */
 
-  .header__content-logo-descr {
+  .hamburger {
     display: block;
   }
 
-  .header__content-menu-wrapper {
+  .header__content-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 55%;
+    background-color: #000;
+    overflow-y: auto;
+    height: 100vh;
+  }
+
+  .mobile-menu-items {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background: rgba(0, 0, 0, 1);
-    border-bottom: 1px solid #fff;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
   }
 
-  .header__content-menu-logo {
-    display: flex;
-    align-items: center;
+  .mobile-menu-dropdown {
+    height: 100vh;
   }
 
-  .header__content-menu-logo-descr {
-    font-size: 30px;
-    font-family: "Museo Sans 700 Bold";
+  .mobile-menu-item-link:hover,
+  .mobile-menu-more:hover,
+  .mobile-menu-dropdown-item:hover {
+    border-bottom: none;
+    transition: none;
   }
 
-  .header__content-menu-time {
-    font-size: 14px;
-    font-family: "Museo Sans 300 Light";
+  .mobile-menu-dropdown-item {
+    height: auto;
   }
 
-  .header__content-menu-item {
+  .header__content-logo-link-descr {
+    display: block;
+  }
+
+  .mobile-menu-item {
+    font-size: 16px;
     color: #fff;
+    font-family: "Museo Sans 500 Medium";
+    width: 100%;
   }
 
-  .header__content-menu-item-link,
-  .header__content-dropdown-item-link,
-  .header__content-more {
+  .mobile-menu-item-link,
+  .mobile-menu-dropdown-item-link,
+  .mobile-menu-more {
     display: flex;
     align-items: center;
-    width: 100%;
     padding: 8px 24px;
     font-size: 14px;
     height: 48px;
@@ -149,49 +167,6 @@
 
   .header__services {
     margin-bottom: 60px;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .header__content-menu {
-    position: fixed;
-    top: -200%;
-    left: 0;
-    width: 55%;
-    height: 100vh;
-    background-color: #000;
-    transition: 0.6s ease;
-    overflow-y: auto;
-  }
-
-  .header__content-menu_active {
-    top: 0;
-  }
-
-  .header__content-menu-items {
-    flex-direction: column;
-    align-items: start;
-    justify-content: flex-start;
-    overflow-y: auto;
-  }
-
-  .header__content-dropdown {
-    left: 20%;
-    padding: 0;
-    top: auto;
-  }
-
-  .header__content-menu-item-link:hover,
-  .header__content-more:hover,
-  .header__content-dropdown-item:hover {
-    border-bottom: none;
-    transition: none;
-  }
-
-  .header__content-dropdown-item {
-    height: auto;
   }
 
   /* advantages section */
@@ -327,26 +302,25 @@
   }
 
   /* header section */
+
+  .decor {
+    background-color: rgb(23, 23, 23);
+  }
+
   .container_header {
     padding: 120px 0px 40px 0px;
   }
 
   .header__content {
-    padding: 10px;
+    padding: 10px 0px;
   }
 
   .header__content-logo {
     display: none;
   }
 
-  .header__content-menu {
+  .mobile-menu {
     width: 100%;
-  }
-
-  .header__content-menu-wrapper {
-    flex-direction: column;
-    align-items: start;
-    padding: 10px 20px;
   }
 
   .header__content-block-menu {

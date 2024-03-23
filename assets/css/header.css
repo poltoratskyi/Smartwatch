@@ -23,19 +23,25 @@
 
 .header__content-logo {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  flex-direction: column;
+  align-items: start;
   margin-right: 40px;
 }
 
-.header__content-logo-descr {
-  font-size: 30px;
-  font-family: "Museo Sans 700 Bold";
+.header__content-logo-time {
+  font-size: 14px;
+  color: #fff;
+  font-family: "Museo Sans 300 Light";
 }
 
-.header__content-menu-wrapper {
-  display: none;
+.header__content-logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.header__content-logo-link-descr {
+  font-size: 30px;
+  font-family: "Museo Sans 700 Bold";
 }
 
 .header__content-block-menu {
@@ -82,7 +88,7 @@
   position: absolute;
   display: none;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 1);
   top: 100%;
 }
 
@@ -104,6 +110,10 @@
 .header__content-basket-link {
   display: flex;
   align-items: center;
+}
+
+.mobile-menu {
+  display: none;
 }
 
 .header__title {
