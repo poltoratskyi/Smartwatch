@@ -73,36 +73,11 @@ $(document).ready(function () {
   });
 
   /* Dropdown menu */
-  const decor = $(".decor");
-
   const menuDropdown = $(".header__content-dropdown");
   const dropdownLink = $(".header__content-dropdown-item-link");
 
   const mobileMenuDropdown = $(".mobile-menu-dropdown");
   const mobileMenuDropdownLink = $(".mobile-menu-dropdown-item-link");
-
-  /* Dropdown menu open/closed */
-  let isMenuOpen = false;
-
-  const animateBgMenu = (element) => {
-    if (!hamburger.is(":visible")) {
-      /* Visibile cursor */
-      $(element).mouseenter(function () {
-        if (isMenuOpen === false) {
-          $(this).css("background-color", "rgba(0, 0, 0, 1)");
-        }
-      });
-
-      /* Hidden cursor */
-      $(element).mouseleave(function () {
-        if (isMenuOpen === false) {
-          $(this).css("background-color", "rgba(0, 0, 0, 0.7)");
-        }
-      });
-    }
-  };
-
-  animateBgMenu(decor);
 
   /* Click -> dropdown btn */
   const headerMenuItem = $(".header__content-menu-item");
@@ -115,14 +90,10 @@ $(document).ready(function () {
       /* Dropdown menu is visibile */
       if (dropdownMenu.is(":visible")) {
         dropdownMenu.slideUp(500);
-        isMenuOpen = false;
       } else {
         /* Dropdown menu is hidden */
         dropdownMenu.slideDown();
-        isMenuOpen = true;
       }
-
-      return isMenuOpen;
     });
   };
 
@@ -137,13 +108,9 @@ $(document).ready(function () {
     link.each(function () {
       $(this).on("click", function (e) {
         e.preventDefault();
-
         $(menu).slideUp(500);
-
         $(mobileMenu).slideUp(500);
-
         $(hamburger).removeClass("hamburger_active");
-
         document.body.style.overflow = "auto";
       });
     });
@@ -162,16 +129,13 @@ $(document).ready(function () {
       /* Dropdown menu is visibile */
       if (dropdownMenu.is(":visible")) {
         dropdownMenu.slideUp(500);
-
         $(mobileMenu).slideUp(500);
 
-        isMenuOpen = false;
-
+        /* isMenuOpen = false; */
         $(hamburger).removeClass("hamburger_active");
-
         document.body.style.overflow = "auto";
       }
-      return isMenuOpen;
+      /* return isMenuOpen; */
     });
   };
 
@@ -184,7 +148,7 @@ $(document).ready(function () {
 
   /* Modal callback window */
   const modalCallbackClose = $(".modal-callback__close");
-  const overlay = $(".overlay");
+  const modalOverlay = $(".modal-overlay");
 
   /* Success window */
   const successClose = $(".success__close");
@@ -193,7 +157,7 @@ $(document).ready(function () {
   /* Open modal window of registration form -> btn */
   $("[data-modal=consultation]").on("click", function (e) {
     e.preventDefault();
-    $(overlay).fadeIn(500);
+    $(modalOverlay).fadeIn(500);
     document.body.style.overflow = "hidden";
   });
 
@@ -206,13 +170,14 @@ $(document).ready(function () {
     });
   };
 
-  closeModalWindow(modalCallbackClose, overlay);
+  closeModalWindow(modalCallbackClose, modalOverlay);
   closeModalWindow(successClose, success);
 
   /* Close modal window of registration form -> keydown Escape */
   $(document).on("keydown", function (e) {
     if (e.key === "Escape") {
-      $(overlay).fadeOut(500);
+      $(modalOverlay).fadeOut(500);
+      $(basketOverlay).fadeOut(500);
       $(success).fadeOut(500);
       document.body.style.overflow = "auto";
     }
@@ -236,7 +201,7 @@ $(document).ready(function () {
 
     if (isValid) {
       formInputs.val("");
-      $(overlay).fadeOut(500);
+      $(modalOverlay).fadeOut(500);
       $(success).fadeIn(500);
       document.body.style.overflow = "auto";
       setTimeout(() => {
@@ -309,6 +274,72 @@ $(document).ready(function () {
       correctId("proffessional", dataProffessional, dataRunners);
     });
   });
+
+  /* /////////////////////////////////////////////////////////////////////// */
+
+  /* Catalog block */
+
+  /* Catalog btn */
+  const basketOverlay = $(".basket-overlay");
+  const basketCloseBtn = $(".basket__title-close");
+
+  let totalAmount = 0;
+
+  $("[data-modal='append']").each(function () {
+    $(this).on("click", function () {
+      /* Get the product name */
+      const productName = $(this)
+        .closest(".catalog__content-wrapper-price")
+        .siblings(".catalog__content-label");
+
+      /* Get the product -> default price */
+      const productDefaultPrice = parseFloat(
+        $(this).siblings(".catalog__content-default-price").text()
+      );
+
+      /* Get the product -> discount price */
+      const productPrice = parseFloat(
+        $(this).siblings(".catalog__content-discount-price").text()
+      );
+
+      /* Adding default/discount price -> header-basket */
+      const priceToAdd = productPrice || productDefaultPrice;
+      totalAmount += priceToAdd;
+      $(".header__content-basket-descr").text(`${totalAmount} $`);
+
+      /* Off event click */
+      $(this).off("click");
+
+      /* Update btn event */
+      $(this).addClass("button_catalog_active").text("В корзине");
+
+      /* Basket modal window -> open */
+      $(this).on("click", function () {
+        $(basketOverlay).fadeIn(500);
+        document.body.style.overflow = "hidden";
+      });
+
+      /* Modal window -> close */
+      basketClose($(basketCloseBtn));
+    });
+  });
+
+  /* Basket modal window -> open header-btn */
+  $("#header-basket").on("click", function () {
+    document.body.style.overflow = "hidden";
+    $(basketOverlay).fadeIn(500);
+    basketClose($(basketCloseBtn));
+  });
+
+  /* Basket modal window -> close */
+  const basketClose = (element) => {
+    $(element).on("click", function () {
+      document.body.style.overflow = "auto";
+      $(basketOverlay).fadeOut(500);
+    });
+  };
+
+  basketClose(btn_order);
 
   /* /////////////////////////////////////////////////////////////////////// */
 });

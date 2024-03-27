@@ -108,12 +108,14 @@
 }
 
 .catalog__content-line {
+  height: 0;
   width: 90%;
-  border: 1px solid #d0d0d0;
+  border-bottom: 1px solid #d0d0d0;
   margin-bottom: 20px;
 }
 
-.catalog__content-sailPrice {
+.catalog__content-discount-price,
+.catalog__content-default-price {
   font-size: 20px;
   font-family: "Museo Sans 700 Bold";
   color: #0d0d0d;
@@ -125,4 +127,12 @@
   font-size: 14px;
   font-family: "Museo Sans 300 Light";
   text-decoration: line-through;
+}
+
+.catalog__content-wrapper-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
 }

@@ -14,6 +14,10 @@
   transition: background-color 0.5s ease;
 }
 
+.decor:hover {
+  background-color: rgba(0, 0, 0, 1);
+}
+
 .header__content {
   display: flex;
   align-items: center;
@@ -107,9 +111,11 @@
   margin-right: 10px;
 }
 
-.header__content-basket-link {
+.header__content-basket-wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .mobile-menu {

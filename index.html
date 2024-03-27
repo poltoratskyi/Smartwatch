@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <section class="header" id="to-header">
+    <header class="header" id="to-header">
       <div class="container container_header">
         <div class="decor">
           <div class="container">
@@ -296,8 +296,8 @@
                   <span class="header__content-number">+1(23)456-789 </span>
                 </a>
 
-                <button class="button button_header-basket">
-                  <a class="header__content-basket-link" href="">
+                <button id="header-basket" class="button button_header-basket">
+                  <div class="header__content-basket-wrapper">
                     <svg
                       id="basket-header"
                       width="25px"
@@ -322,8 +322,9 @@
                         </g>
                       </g>
                     </svg>
-                    Корзина
-                  </a>
+
+                    <span class="header__content-basket-descr">Корзина</span>
+                  </div>
                 </button>
 
                 <div class="hamburger">
@@ -583,7 +584,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </header>
 
     <section class="advantages">
       <div class="container container_advantages">
@@ -815,15 +816,21 @@
 
             <a class="catalog__content-link" href="">ПОДРОБНЕЕ</a>
 
-            <div class="catalog__content-line"></div>
+            <span class="catalog__content-line"></span>
 
-            <span class="catalog__content-price">130 $</span>
+            <div class="catalog__content-wrapper-price">
+              <span class="catalog__content-price">130 $</span>
 
-            <span class="catalog__content-sailPrice">100 $</span>
+              <span class="catalog__content-discount-price">100 $</span>
 
-            <button class="button button_catalog" type="button">
-              Добавить в корзину
-            </button>
+              <button
+                class="button button_catalog"
+                data-modal="append"
+                type="button"
+              >
+                Добавить в корзину
+              </button>
+            </div>
           </div>
 
           <div data-modal="proffessional" class="catalog__content wow fadeInUp">
@@ -849,15 +856,21 @@
 
             <a class="catalog__content-link" href="">ПОДРОБНЕЕ</a>
 
-            <div class="catalog__content-line"></div>
+            <span class="catalog__content-line"></span>
 
-            <span class="catalog__content-price">180 $</span>
+            <div class="catalog__content-wrapper-price">
+              <span class="catalog__content-price">180 $</span>
 
-            <span class="catalog__content-sailPrice">140 $</span>
+              <span class="catalog__content-discount-price">140 $</span>
 
-            <button class="button button_catalog" type="button">
-              Добавить в корзину
-            </button>
+              <button
+                class="button button_catalog"
+                data-modal="append"
+                type="button"
+              >
+                Добавить в корзину
+              </button>
+            </div>
           </div>
 
           <div data-modal="runners" class="catalog__content wow fadeInUp">
@@ -883,15 +896,21 @@
 
             <a class="catalog__content-link" href="">ПОДРОБНЕЕ</a>
 
-            <div class="catalog__content-line"></div>
+            <span class="catalog__content-line"></span>
 
-            <span class="catalog__content-price">150 $</span>
+            <div class="catalog__content-wrapper-price">
+              <span class="catalog__content-price">150 $</span>
 
-            <span class="catalog__content-sailPrice">130 $</span>
+              <span class="catalog__content-discount-price">130 $</span>
 
-            <button class="button button_catalog" type="button">
-              Добавить в корзину
-            </button>
+              <button
+                class="button button_catalog"
+                data-modal="append"
+                type="button"
+              >
+                Добавить в корзину
+              </button>
+            </div>
           </div>
 
           <div data-modal="runners" class="catalog__content wow fadeInUp">
@@ -917,15 +936,20 @@
 
             <a class="catalog__content-link" href="">ПОДРОБНЕЕ</a>
 
-            <div class="catalog__content-line"></div>
+            <span class="catalog__content-line"></span>
+            <div class="catalog__content-wrapper-price">
+              <span class="catalog__content-price">170 $</span>
 
-            <span class="catalog__content-price">170 $</span>
+              <span class="catalog__content-discount-price">150 $</span>
 
-            <span class="catalog__content-sailPrice">150 $</span>
-
-            <button class="button button_catalog" type="button">
-              Добавить в корзину
-            </button>
+              <button
+                class="button button_catalog"
+                data-modal="append"
+                type="button"
+              >
+                Добавить в корзину
+              </button>
+            </div>
           </div>
 
           <div data-modal="proffessional" class="catalog__content wow fadeInUp">
@@ -951,15 +975,19 @@
 
             <a class="catalog__content-link" href="">ПОДРОБНЕЕ</a>
 
-            <div class="catalog__content-line"></div>
+            <span class="catalog__content-line"></span>
 
-            <span class="catalog__content-price">200 $</span>
+            <div class="catalog__content-wrapper-price">
+              <span class="catalog__content-default-price">200 $</span>
 
-            <span class="catalog__content-sailPrice">180 $</span>
-
-            <button class="button button_catalog" type="button">
-              Добавить в корзину
-            </button>
+              <button
+                class="button button_catalog"
+                data-modal="append"
+                type="button"
+              >
+                Добавить в корзину
+              </button>
+            </div>
           </div>
 
           <div data-modal="runners" class="catalog__content wow fadeInUp">
@@ -985,15 +1013,19 @@
 
             <a class="catalog__content-link" href="">ПОДРОБНЕЕ</a>
 
-            <div class="catalog__content-line"></div>
+            <span class="catalog__content-line"></span>
 
-            <span class="catalog__content-price">190 $</span>
+            <div class="catalog__content-wrapper-price">
+              <span class="catalog__content-default-price">170 $</span>
 
-            <span class="catalog__content-sailPrice">170 $</span>
-
-            <button class="button button_catalog" type="button">
-              Добавить в корзину
-            </button>
+              <button
+                class="button button_catalog"
+                data-modal="append"
+                type="button"
+              >
+                Добавить в корзину
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -1217,7 +1249,7 @@
       </div>
     </footer>
 
-    <div class="overlay">
+    <div class="modal-overlay">
       <div class="modal-callback">
         <div class="modal-callback__wrapper">
           <div class="modal-callback__close">&times;</div>
@@ -1321,6 +1353,173 @@
               </svg>
             </a>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="basket-overlay">
+      <div class="basket">
+        <div class="basket__title">
+          <div class="basket__title-label"><span>Корзина</span></div>
+          <div class="basket__title-close">&times;</div>
+        </div>
+
+        <ul class="basket__items">
+          <li class="basket__item">
+            <picture class="basket__item-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-6.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="basket__item-icon"
+                src="assets/img/pulsometr-min-6.jpg"
+                loading="lazy"
+                alt="pulsometr"
+              />
+            </picture>
+
+            <div class="basket__item-info">
+              <div class="basket__item-del">&times;</div>
+
+              <p class="basket__item-info-name">Пульсометр Polar FT4</p>
+
+              <span class="basket__item-info-descr"
+                >Улучшенная версия Polar FT3</span
+              >
+
+              <span class="basket__item-discount-price">150 $</span>
+
+              <span class="basket__item-info-price">170 $</span>
+            </div>
+          </li>
+
+          <li class="basket__item">
+            <picture class="basket__item-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-6.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="basket__item-icon"
+                src="assets/img/pulsometr-min-6.jpg"
+                loading="lazy"
+                alt="pulsometr"
+              />
+            </picture>
+
+            <div class="basket__item-info">
+              <div class="basket__item-del">&times;</div>
+
+              <p class="basket__item-info-name">Пульсометр Polar FT4</p>
+
+              <span class="basket__item-info-descr"
+                >Улучшенная версия Polar FT3</span
+              >
+
+              <span class="basket__item-discount-price">150 $</span>
+
+              <span class="basket__item-info-price">170 $</span>
+            </div>
+          </li>
+
+          <li class="basket__item">
+            <picture class="basket__item-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-6.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="basket__item-icon"
+                src="assets/img/pulsometr-min-6.jpg"
+                loading="lazy"
+                alt="pulsometr"
+              />
+            </picture>
+
+            <div class="basket__item-info">
+              <div class="basket__item-del">&times;</div>
+
+              <p class="basket__item-info-name">Пульсометр Polar FT4</p>
+
+              <span class="basket__item-info-descr"
+                >Улучшенная версия Polar FT3</span
+              >
+
+              <span class="basket__item-discount-price">150 $</span>
+
+              <span class="basket__item-info-price">170 $</span>
+            </div>
+          </li>
+
+          <li class="basket__item">
+            <picture class="basket__item-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-6.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="basket__item-icon"
+                src="assets/img/pulsometr-min-6.jpg"
+                loading="lazy"
+                alt="pulsometr"
+              />
+            </picture>
+
+            <div class="basket__item-info">
+              <div class="basket__item-del">&times;</div>
+
+              <p class="basket__item-info-name">Пульсометр Polar FT4</p>
+
+              <span class="basket__item-info-descr"
+                >Улучшенная версия Polar FT3</span
+              >
+
+              <span class="basket__item-discount-price">150 $</span>
+
+              <span class="basket__item-info-price">170 $</span>
+            </div>
+          </li>
+
+          <li class="basket__item">
+            <picture class="basket__item-img">
+              <source
+                srcset="assets/img/Webp/pulsometr-min-6.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="basket__item-icon"
+                src="assets/img/pulsometr-min-6.jpg"
+                loading="lazy"
+                alt="pulsometr"
+              />
+            </picture>
+
+            <div class="basket__item-info">
+              <div class="basket__item-del">&times;</div>
+
+              <p class="basket__item-info-name">Пульсометр Polar FT4</p>
+
+              <span class="basket__item-info-descr"
+                >Улучшенная версия Polar FT3</span
+              >
+
+              <span class="basket__item-discount-price">150 $</span>
+
+              <span class="basket__item-info-price">170 $</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="basket__bottom">
+          <button id="btn_order" class="button button_order">
+            Оформить заказ
+          </button>
         </div>
       </div>
     </div>

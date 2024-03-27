@@ -22,6 +22,8 @@
 }
 
 .button_header-basket {
+  justify-content: center;
+  min-width: 135px;
   border-radius: 30px;
   border: 2px solid #c70101;
   display: flex;
@@ -39,6 +41,17 @@
 }
 
 .button_catalog {
+  width: 215px;
   padding: 15px 30px;
   font-size: 16px;
+}
+
+.button_catalog_active {
+  background-color: #9a0202;
+}
+
+.button_order {
+  padding: 15px 30px;
+  font-size: 16px;
+  width: 100%;
 }
