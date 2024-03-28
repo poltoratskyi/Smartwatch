@@ -179,6 +179,7 @@ $(document).ready(function () {
       $(modalOverlay).fadeOut(500);
       $(basketOverlay).fadeOut(500);
       $(success).fadeOut(500);
+      $(basket).removeClass("basket_active");
       document.body.style.overflow = "auto";
     }
   });
@@ -215,23 +216,29 @@ $(document).ready(function () {
   /* Smooth scroll link block */
 
   /* Arrow to-up and header catalog link */
-  $(
-    ".header__content-menu-item-link, .header__content-logo-link, .header__content-dropdown-item-link, .mobile-menu-item-link, .mobile-menu-dropdown-item-link, .scroll__to-up, .header__consultation-link"
-  ).click(function () {
-    var target = $($(this).attr("href"));
-    if (target.length) {
-      $("html, body").animate(
-        {
-          scrollTop: target.offset().top + "px",
-        },
-        {
-          duration: 500,
-          easing: "swing",
-        }
-      );
-      return false;
-    }
-  });
+  const smoothScroll = (element) => {
+    element.click(function () {
+      var target = $($(this).attr("href"));
+      if (target.length) {
+        $("html, body").animate(
+          {
+            scrollTop: target.offset().top + "px",
+          },
+          {
+            duration: 500,
+            easing: "swing",
+          }
+        );
+        return false;
+      }
+    });
+  };
+
+  smoothScroll(
+    $(
+      ".header__content-menu-item-link, .header__content-logo-link, .header__content-dropdown-item-link, .mobile-menu-item-link, .mobile-menu-dropdown-item-link, .scroll__to-up, .header__consultation-link, #order-link"
+    )
+  );
 
   /* /////////////////////////////////////////////////////////////////////// */
 
@@ -277,69 +284,148 @@ $(document).ready(function () {
 
   /* /////////////////////////////////////////////////////////////////////// */
 
-  /* Catalog block */
+  /* Catalog <-> basket block */
 
-  /* Catalog btn */
+  const basket = $(".basket");
   const basketOverlay = $(".basket-overlay");
   const basketCloseBtn = $(".basket__title-close");
+  const headerBasket = $("#header-basket");
+  const headerTotalPrice = $(".header__content-basket-descr");
+  const bottomTotalPrice = $(".basket__bottom-total-price-value");
+  const orderLink = $("#order-link");
 
   let totalAmount = 0;
 
-  $("[data-modal='append']").each(function () {
-    $(this).on("click", function () {
-      /* Get the product name */
-      const productName = $(this)
-        .closest(".catalog__content-wrapper-price")
-        .siblings(".catalog__content-label");
+  let selectedProducts =
+    JSON.parse(localStorage.getItem("selectedProducts")) || [];
 
-      /* Get the product -> default price */
-      const productDefaultPrice = parseFloat(
-        $(this).siblings(".catalog__content-default-price").text()
-      );
-
-      /* Get the product -> discount price */
-      const productPrice = parseFloat(
-        $(this).siblings(".catalog__content-discount-price").text()
-      );
-
-      /* Adding default/discount price -> header-basket */
-      const priceToAdd = productPrice || productDefaultPrice;
-      totalAmount += priceToAdd;
-      $(".header__content-basket-descr").text(`${totalAmount} $`);
-
-      /* Off event click */
-      $(this).off("click");
-
-      /* Update btn event */
-      $(this).addClass("button_catalog_active").text("В корзине");
-
-      /* Basket modal window -> open */
-      $(this).on("click", function () {
-        $(basketOverlay).fadeIn(500);
-        document.body.style.overflow = "hidden";
-      });
-
-      /* Modal window -> close */
-      basketClose($(basketCloseBtn));
-    });
-  });
-
-  /* Basket modal window -> open header-btn */
-  $("#header-basket").on("click", function () {
-    document.body.style.overflow = "hidden";
-    $(basketOverlay).fadeIn(500);
-    basketClose($(basketCloseBtn));
-  });
-
-  /* Basket modal window -> close */
-  const basketClose = (element) => {
-    $(element).on("click", function () {
-      document.body.style.overflow = "auto";
-      $(basketOverlay).fadeOut(500);
+  /* Basket modal window -> open */
+  const basketOpen = (button) => {
+    button.on("click", function () {
+      $(basketOverlay).fadeIn(500);
+      $(basket).addClass("basket_active");
+      document.body.style.overflow = "hidden";
     });
   };
 
-  basketClose(btn_order);
+  basketOpen(headerBasket);
+
+  /* Basket modal window -> close */
+  const basketClose = (button) => {
+    $(button).on("click", function () {
+      $(basketOverlay).fadeOut(500);
+      $(basket).removeClass("basket_active");
+      document.body.style.overflow = "auto";
+    });
+  };
+
+  basketClose(orderLink);
+  basketClose(basketCloseBtn);
+
+  /* Update total price state <-> localStorage */
+  const updateTotalPrice = () => {
+    totalAmount = selectedProducts.reduce(
+      (sum, product) => sum + product.totalPrice,
+      0
+    );
+
+    if (totalAmount === 0) {
+      headerTotalPrice.text("Корзина");
+      bottomTotalPrice.text(`${0} $`);
+    } else {
+      headerTotalPrice.text(`${totalAmount} $`);
+      bottomTotalPrice.text(`${totalAmount} $`);
+    }
+  };
+
+  /* Update button state <-> localStorage */
+  const updateButtonState = (button) => {
+    const productName = button
+      .closest(".catalog__content-wrapper-price")
+      .siblings(".catalog__content-label")
+      .text();
+
+    const isProductSelected = selectedProducts.some(
+      (product) => product.productName === productName
+    );
+
+    if (isProductSelected) {
+      button.addClass("button_catalog_active").text("В корзине");
+    }
+  };
+
+  $("[data-modal='append']").each(function () {
+    const button = $(this);
+
+    /* Dynamic update btn state <- localStorage */
+    updateButtonState(button);
+
+    /* Dynamic total price state <- localStorage */
+    updateTotalPrice();
+
+    const productName = button
+      .closest(".catalog__content-wrapper-price")
+      .siblings(".catalog__content-label")
+      .text();
+
+    const productInfo = selectedProducts.some(
+      (product) => product.productName === productName
+    );
+
+    if (!productInfo) {
+      /* Open basket modal window */
+      basketOpen(button);
+
+      button.on("click", function () {
+        /* Get the product name */
+        const productName = button
+          .closest(".catalog__content-wrapper-price")
+          .siblings(".catalog__content-label")
+          .text();
+
+        /* Get the product descr */
+        const productDescr = button
+          .closest(".catalog__content-wrapper-price")
+          .siblings(".catalog__content-description")
+          .text()
+          .trim();
+
+        /* Get the product -> default price */
+        const productDefaultPrice = parseFloat(
+          button.siblings(".catalog__content-default-price").text()
+        );
+
+        /* Get the product -> discount price */
+        const productPrice = parseFloat(
+          button.siblings(".catalog__content-discount-price").text()
+        );
+
+        /* Adding default/discount price -> header total price */
+        const totalPrice = productPrice || productDefaultPrice;
+        totalAmount += totalPrice;
+        headerTotalPrice.text(`${totalAmount} $`);
+        bottomTotalPrice.text(`${totalAmount} $`);
+
+        /* Update btn state -> click */
+        button.addClass("button_catalog_active").text("В корзине");
+
+        /* Adding product info -> localStorage  */
+        selectedProducts.push({
+          productName: productName,
+          productDescr: productDescr,
+          totalPrice: totalPrice,
+        });
+
+        localStorage.setItem(
+          "selectedProducts",
+          JSON.stringify(selectedProducts)
+        );
+
+        /* Off event click */
+        button.off("click");
+      });
+    }
+  });
 
   /* /////////////////////////////////////////////////////////////////////// */
 });

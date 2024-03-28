@@ -6,6 +6,7 @@
   background-color: #c70101;
   color: #fff;
   font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
@@ -15,7 +16,6 @@
 .button_header-call {
   border-radius: 30px;
   border: 2px solid #c70101;
-  transition: border-color 0.3s ease;
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -50,8 +50,22 @@
   background-color: #9a0202;
 }
 
-.button_order {
+.button_order,
+.button_order-link {
   padding: 15px 30px;
   font-size: 16px;
   width: 100%;
+  margin-bottom: 15px;
+}
+
+.button_order-link {
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #d0d0d0;
+  color: #6b6b6b;
+  margin-bottom: 0px;
+}
+
+.button_order-link:hover {
+  color: #fff;
 }

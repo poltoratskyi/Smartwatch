@@ -26,6 +26,8 @@
   text-transform: uppercase;
   cursor: pointer;
   margin-right: 20px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
 }
 
 .catalog__tab:last-child {
