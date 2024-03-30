@@ -63,6 +63,7 @@
   display: grid;
   justify-items: center;
   border: 2px solid #d0d0d0;
+  min-height: 650px;
   padding: 20px 20px;
   animation-duration: 1s;
 }
@@ -94,6 +95,7 @@
   font-family: "Museo Sans 300 Light";
   text-align: center;
   margin-bottom: 20px;
+  min-height: 125px;
 }
 
 .catalog__content-link {

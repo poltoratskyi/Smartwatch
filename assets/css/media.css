@@ -487,7 +487,7 @@
   }
 
   /* Basket block */
-  .basket__item {
-    height: 150px;
+  .basket__item-info-name {
+    font-size: 14px;
   }
 }

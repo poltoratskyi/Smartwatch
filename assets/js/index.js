@@ -287,6 +287,7 @@ $(document).ready(function () {
   /* Catalog <-> basket block */
 
   const basket = $(".basket");
+  const basketItems = $(".basket__items");
   const basketOverlay = $(".basket-overlay");
   const basketCloseBtn = $(".basket__title-close");
   const headerBasket = $("#header-basket");
@@ -295,6 +296,7 @@ $(document).ready(function () {
   const orderLink = $("#order-link");
 
   let totalAmount = 0;
+  let totalCounter = 1;
 
   let selectedProducts =
     JSON.parse(localStorage.getItem("selectedProducts")) || [];
@@ -321,6 +323,72 @@ $(document).ready(function () {
 
   basketClose(orderLink);
   basketClose(basketCloseBtn);
+
+  /* Counter */
+  const counterValue = $(".basket__item-info-value");
+  const counterPlus = $(".basket__item-info-counter-plus");
+  const counterMinus = $(".basket__item-info-counter-minus");
+
+  /* Value of counter */
+  const valueCounter = 1;
+
+  /*   counterPlus.on("click", function () {
+    let value = parseInt(counterValue.text());
+    counterValue.text(value + 1);
+  });
+
+  counterMinus.on("click", function () {
+    let value = parseInt(counterValue.text());
+
+    if (value > 1) {
+      totalCounter.text(value - 1);
+    }
+  }); */
+
+  /* Update basket state <-> localStorage */
+  const updateBasket = () => {
+    selectedProducts.forEach(function (product) {
+      const cartItemHTML = `<li class="basket__item">
+      <picture class="basket__item-img">
+        <source
+          srcset="${product.productImg}"
+          type="image/webp"
+        />
+
+        <img
+          class="basket__item-icon"
+          src="${product.productImg}"
+          loading="lazy"
+          alt="pulsometr"
+        />
+      </picture>
+
+      <div class="basket__item-info">
+        <div class="basket__item-del">&times;</div>
+
+        <p class="basket__item-info-name">${product.productName}</p>
+
+        <p class="basket__item-info-descr">
+          ${product.productDescr}
+        </p>
+
+        <div class="basket__item-info-wrapper">
+          <div class="basket__item-info-counter">
+            <span class="basket__item-info-counter-minus">-</span>
+            <span class="basket__item-info-value">${product.valueCounter}</span>
+            <span class="basket__item-info-counter-plus">+</span>
+          </div>
+
+          <span class="basket__item-info-price">${product.totalPrice} $</span>
+        </div>
+      </div>
+    </li>`;
+
+      basketItems.append(cartItemHTML);
+    });
+  };
+
+  updateBasket();
 
   /* Update total price state <-> localStorage */
   const updateTotalPrice = () => {
@@ -377,6 +445,15 @@ $(document).ready(function () {
       basketOpen(button);
 
       button.on("click", function () {
+        /* Get the id product */
+        const productId = button.closest(".catalog__content").attr("data-id");
+
+        /* Get the img product */
+        const productImg = button
+          .closest(".catalog__content")
+          .find(".catalog__content-img img")
+          .attr("src");
+
         /* Get the product name */
         const productName = button
           .closest(".catalog__content-wrapper-price")
@@ -391,12 +468,12 @@ $(document).ready(function () {
           .trim();
 
         /* Get the product -> default price */
-        const productDefaultPrice = parseFloat(
+        const productDefaultPrice = parseInt(
           button.siblings(".catalog__content-default-price").text()
         );
 
         /* Get the product -> discount price */
-        const productPrice = parseFloat(
+        const productPrice = parseInt(
           button.siblings(".catalog__content-discount-price").text()
         );
 
@@ -411,9 +488,12 @@ $(document).ready(function () {
 
         /* Adding product info -> localStorage  */
         selectedProducts.push({
+          productId: productId,
+          productImg: productImg,
           productName: productName,
           productDescr: productDescr,
           totalPrice: totalPrice,
+          valueCounter: valueCounter,
         });
 
         localStorage.setItem(
@@ -423,6 +503,44 @@ $(document).ready(function () {
 
         /* Off event click */
         button.off("click");
+
+        const cartItemHTML = `<li data-id=${productId} class="basket__item">
+          <picture class="basket__item-img">
+            <source
+              srcset="${productImg}"
+              type="image/webp"
+            />
+
+            <img
+              class="basket__item-icon"
+              src="${productImg}"
+              loading="lazy"
+              alt="pulsometr"
+            />
+          </picture>
+
+          <div class="basket__item-info">
+            <div class="basket__item-del">&times;</div>
+
+            <p class="basket__item-info-name">${productName}</p>
+
+            <p class="basket__item-info-descr">
+              ${productDescr}
+            </p>
+
+            <div class="basket__item-info-wrapper">
+              <div class="basket__item-info-counter">
+                <span class="basket__item-info-counter-minus">-</span>
+                <span class="basket__item-info-value">${valueCounter}</span>
+                <span class="basket__item-info-counter-plus">+</span>
+              </div>
+
+              <span class="basket__item-info-price">${totalPrice} $</span>
+            </div>
+          </div>
+        </li>`;
+
+        basketItems.append(cartItemHTML);
       });
     }
   });
