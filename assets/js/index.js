@@ -345,10 +345,78 @@ $(document).ready(function () {
     }
   }); */
 
+  /* Added button state <-> localStorage */
+  const addedButtonActive = (button) => {
+    const productId = button.closest(".catalog__content").attr("data-id");
+
+    const isProductSelected = selectedProducts.some(
+      (product) => product.productId === productId
+    );
+
+    if (isProductSelected) {
+      button.addClass("button_catalog_active").text("В корзине");
+    }
+  };
+
+  /* Remove button state <-> localStorage */
+  const removeButtonActive = (button) => {
+    $(".basket__item-del").on("click", function () {
+      const productId = $(this).closest(".basket__item").data("id");
+
+      const isProductSelected = selectedProducts.some(
+        (product) => product.productId === productId
+      );
+
+      if (!isProductSelected) {
+        button
+          .closest(".catalog__content")
+          .find("[data-modal='append']")
+          .removeClass("button_catalog_active")
+          .text("Добавить в корзину");
+      }
+    });
+  };
+
+  /* Remove product */
+  const removeProduct = () => {
+    $(".basket__item-del").on("click", function () {
+      /* Get the id product */
+      const productId = $(this).closest(".basket__item").attr("data-id");
+
+      /* Remove product -> localStorage */
+      selectedProducts = selectedProducts.filter(
+        (product) => Number(product.productId) !== Number(productId)
+      );
+
+      /* Update basket items -> localStorage */
+      localStorage.setItem(
+        "selectedProducts",
+        JSON.stringify(selectedProducts)
+      );
+
+      /* Update total price state <-> localStorage */
+      updateTotalPrice();
+
+      /* Remove product -> basket */
+      $(this)
+        .closest(".basket__item")
+        .animate(
+          {
+            opacity: 0,
+            marginTop: "-180px",
+          },
+          200,
+          function () {
+            $(this).remove();
+          }
+        );
+    });
+  };
+
   /* Update basket state <-> localStorage */
   const updateBasket = () => {
     selectedProducts.forEach(function (product) {
-      const cartItemHTML = `<li class="basket__item">
+      const cartItemHTML = `<li data-id=${product.productId} class="basket__item">
       <picture class="basket__item-img">
         <source
           srcset="${product.productImg}"
@@ -384,7 +452,18 @@ $(document).ready(function () {
       </div>
     </li>`;
 
-      basketItems.append(cartItemHTML);
+      basketItems.prepend(cartItemHTML);
+
+      /* Search the current id element -> li */
+      const catalogContentId = $(
+        `.catalog__content[data-id="${product.productId}"]`
+      );
+
+      /* Find the current button -> li */
+      const currentButton = catalogContentId.find("[data-modal='append']");
+
+      /* Remove button active <-> localStorage  */
+      removeButtonActive(currentButton);
     });
   };
 
@@ -406,45 +485,26 @@ $(document).ready(function () {
     }
   };
 
-  /* Update button state <-> localStorage */
-  const updateButtonState = (button) => {
-    const productName = button
-      .closest(".catalog__content-wrapper-price")
-      .siblings(".catalog__content-label")
-      .text();
-
-    const isProductSelected = selectedProducts.some(
-      (product) => product.productName === productName
-    );
-
-    if (isProductSelected) {
-      button.addClass("button_catalog_active").text("В корзине");
-    }
-  };
-
   $("[data-modal='append']").each(function () {
     const button = $(this);
 
-    /* Dynamic update btn state <- localStorage */
-    updateButtonState(button);
+    /* Dynamic update added btn state <- localStorage */
+    addedButtonActive(button);
 
     /* Dynamic total price state <- localStorage */
     updateTotalPrice();
 
-    const productName = button
-      .closest(".catalog__content-wrapper-price")
-      .siblings(".catalog__content-label")
-      .text();
+    /* Open basket modal window */
+    basketOpen(button);
 
-    const productInfo = selectedProducts.some(
-      (product) => product.productName === productName
-    );
+    button.on("click", function () {
+      const productId = button.closest(".catalog__content").attr("data-id");
 
-    if (!productInfo) {
-      /* Open basket modal window */
-      basketOpen(button);
+      const isProductSelected = selectedProducts.some(
+        (product) => Number(product.productId) === Number(productId)
+      );
 
-      button.on("click", function () {
+      if (!isProductSelected) {
         /* Get the id product */
         const productId = button.closest(".catalog__content").attr("data-id");
 
@@ -501,9 +561,6 @@ $(document).ready(function () {
           JSON.stringify(selectedProducts)
         );
 
-        /* Off event click */
-        button.off("click");
-
         const cartItemHTML = `<li data-id=${productId} class="basket__item">
           <picture class="basket__item-img">
             <source
@@ -540,10 +597,22 @@ $(document).ready(function () {
           </div>
         </li>`;
 
-        basketItems.append(cartItemHTML);
-      });
-    }
+        basketItems.prepend(cartItemHTML);
+
+        /* Open basket modal window */
+        basketOpen(button);
+
+        /* Remove the product -> Basket */
+        removeProduct();
+
+        /* Remove btn state <- localStorage */
+        removeButtonActive(button);
+      }
+    });
   });
+
+  /* Remove the product -> localStorage */
+  removeProduct();
 
   /* /////////////////////////////////////////////////////////////////////// */
 });
