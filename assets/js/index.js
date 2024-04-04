@@ -338,7 +338,7 @@ $(document).ready(function () {
   const counterMinus = $(".basket__item-info-counter-minus"); */
 
   /* Value of counter */
-  /* const valueCounter = 1; */
+  const valueCounter = 1;
 
   /* counterPlus.on("click", function () {
     let value = parseInt(counterValue.text());
