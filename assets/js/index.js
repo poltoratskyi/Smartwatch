@@ -295,7 +295,7 @@ $(document).ready(function () {
   const bottomTotalPrice = $(".basket__bottom-total-price-value");
 
   let totalAmount = 0;
-  let totalCounter = 1;
+  /* let totalCounter = 1; */
 
   let selectedProducts =
     JSON.parse(localStorage.getItem("selectedProducts")) || [];
@@ -333,14 +333,14 @@ $(document).ready(function () {
   basketClose(basketCloseBtn);
 
   /* Counter */
-  const counterValue = $(".basket__item-info-value");
+  /* const counterValue = $(".basket__item-info-value");
   const counterPlus = $(".basket__item-info-counter-plus");
-  const counterMinus = $(".basket__item-info-counter-minus");
+  const counterMinus = $(".basket__item-info-counter-minus"); */
 
   /* Value of counter */
-  const valueCounter = 1;
+  /* const valueCounter = 1; */
 
-  /*   counterPlus.on("click", function () {
+  /* counterPlus.on("click", function () {
     let value = parseInt(counterValue.text());
     counterValue.text(value + 1);
   });
@@ -482,6 +482,9 @@ $(document).ready(function () {
   };
 
   updateBasket();
+
+  /* Update empty basket state after loading localStorage -> Basket */
+  isEmpty($(".basket__items-empty"), $("#order"), $("#order-link"));
 
   /* Update total price state -> localStorage */
   const updateTotalPrice = () => {
