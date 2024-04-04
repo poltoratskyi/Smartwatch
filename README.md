@@ -1,5 +1,6 @@
 <p align="center">
-      <img src="https://i.ibb.co/xDdRkPS/image-2024-02-09-19-30-22.png" alt="Smartwatch">
+      <img src="https://i.ibb.co/Nm40QYz/image-2024-04-04-19-01-40.png" alt="Smartwatch">
+      
 </p>
 
 <p align="center">
