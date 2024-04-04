@@ -79,7 +79,6 @@
   min-height: 170px;
   padding: 10px;
   background-color: #fff;
-  border-radius: 10px;
   margin-bottom: 10px;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
@@ -113,13 +112,15 @@
   margin-bottom: 15px;
 }
 
-.basket__item-info-descr {
+.basket__item-info-descr,
+.basket__items-empty-descr {
   text-align: left;
   font-size: 13px;
   font-family: "Museo Sans 300 Light";
 }
 
-.basket__item-info-name {
+.basket__item-info-name,
+.basket__items-empty-title {
   font-size: 18px;
   font-family: "Museo Sans 700 Bold";
   margin-bottom: 5px;
@@ -170,4 +171,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.basket__items-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.basket__items-empty-icon {
+  width: 300px;
+}
+
+.basket__items-empty-title {
+  margin: 20px 0px;
+  text-align: center;
+}
+
+.basket__items-empty-descr {
+  font-size: 14px;
+  text-align: center;
 }

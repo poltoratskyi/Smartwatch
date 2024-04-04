@@ -293,13 +293,21 @@ $(document).ready(function () {
   const headerBasket = $("#header-basket");
   const headerTotalPrice = $(".header__content-basket-descr");
   const bottomTotalPrice = $(".basket__bottom-total-price-value");
-  const orderLink = $("#order-link");
 
   let totalAmount = 0;
   let totalCounter = 1;
 
   let selectedProducts =
     JSON.parse(localStorage.getItem("selectedProducts")) || [];
+
+  /* Basket state change */
+  const isEmpty = (firstElement, secondElement, thirdElement) => {
+    if (selectedProducts.length === 0) {
+      $(firstElement).css("display", "flex");
+      $(secondElement).css("display", "none");
+      $(thirdElement).text("За покупками");
+    }
+  };
 
   /* Basket modal window -> open */
   const basketOpen = (button) => {
@@ -321,7 +329,7 @@ $(document).ready(function () {
     });
   };
 
-  basketClose(orderLink);
+  basketClose($("#order-link"));
   basketClose(basketCloseBtn);
 
   /* Counter */
@@ -345,7 +353,7 @@ $(document).ready(function () {
     }
   }); */
 
-  /* Added button state <-> localStorage */
+  /* Added button state <- localStorage */
   const addedButtonActive = (button) => {
     const productId = button.closest(".catalog__content").attr("data-id");
 
@@ -358,7 +366,7 @@ $(document).ready(function () {
     }
   };
 
-  /* Remove button state <-> localStorage */
+  /* Remove button state <- localStorage */
   const removeButtonActive = (button) => {
     $(".basket__item-del").on("click", function () {
       const productId = $(this).closest(".basket__item").data("id");
@@ -394,8 +402,11 @@ $(document).ready(function () {
         JSON.stringify(selectedProducts)
       );
 
-      /* Update total price state <-> localStorage */
+      /* Update total price state -> localStorage */
       updateTotalPrice();
+
+      /* Update empty basket state -> Basket */
+      isEmpty($(".basket__items-empty"), $("#order"), $("#order-link"));
 
       /* Remove product -> basket */
       $(this)
@@ -413,7 +424,7 @@ $(document).ready(function () {
     });
   };
 
-  /* Update basket state <-> localStorage */
+  /* Update basket state <- localStorage */
   const updateBasket = () => {
     selectedProducts.forEach(function (product) {
       const cartItemHTML = `<li data-id=${product.productId} class="basket__item">
@@ -462,14 +473,17 @@ $(document).ready(function () {
       /* Find the current button -> li */
       const currentButton = catalogContentId.find("[data-modal='append']");
 
-      /* Remove button active <-> localStorage  */
+      /* Remove button active <- localStorage  */
       removeButtonActive(currentButton);
+
+      /* Update empty basket state <- localStorage */
+      $(".basket__items-empty").css("display", "none");
     });
   };
 
   updateBasket();
 
-  /* Update total price state <-> localStorage */
+  /* Update total price state -> localStorage */
   const updateTotalPrice = () => {
     totalAmount = selectedProducts.reduce(
       (sum, product) => sum + product.totalPrice,
@@ -488,10 +502,10 @@ $(document).ready(function () {
   $("[data-modal='append']").each(function () {
     const button = $(this);
 
-    /* Dynamic update added btn state <- localStorage */
+    /* Dynamic update added btn state -> localStorage */
     addedButtonActive(button);
 
-    /* Dynamic total price state <- localStorage */
+    /* Dynamic total price state -> localStorage */
     updateTotalPrice();
 
     /* Open basket modal window */
@@ -605,7 +619,12 @@ $(document).ready(function () {
         /* Remove the product -> Basket */
         removeProduct();
 
-        /* Remove btn state <- localStorage */
+        /* Update empty basket state -> Basket */
+        $(".basket__items-empty").css("display", "none");
+        $("#order").css("display", "block");
+        $("#order-link").text("Добавить другие товары");
+
+        /* Remove btn state -> Basket */
         removeButtonActive(button);
       }
     });
