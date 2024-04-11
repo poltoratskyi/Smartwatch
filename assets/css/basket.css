@@ -4,12 +4,12 @@
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  width: 400px;
   height: 100%;
   overflow-y: auto;
   background-color: #f2f2f2;
   right: -100%;
-  transition: right 0.8s cubic-bezier(0.5, -0.2, 0.5, 1.2);
+  transition: right 0.8s cubic-bezier(0.4, -0.2, 0.4, 1.2);
+  min-width: 350px;
 }
 
 .basket_active {
@@ -27,7 +27,7 @@
   padding: 10px;
   background-color: #fff;
   z-index: 50;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #c1c1d4;
 }
 
 .basket__bottom {
@@ -36,7 +36,7 @@
   bottom: 0;
   height: auto;
   padding: 10px;
-  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #c1c1d4;
 }
 
 .basket__title-label {
@@ -44,20 +44,19 @@
   font-size: 24px;
   font-family: "Museo Sans 700 Bold";
   width: 100%;
+  color: #01011b;
 }
 
 .basket__title-close,
 .basket__item-del {
-  font-size: 50px;
-  color: #c70101;
+  font-size: 35px;
   cursor: pointer;
 }
 
 .basket__item-del {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  font-size: 40px;
+  display: flex;
+  font-size: 20px;
+  align-items: center;
 }
 
 .basket__title-close:hover,
@@ -66,50 +65,38 @@
 }
 
 .basket__items {
-  height: 100%;
   overflow-y: auto;
+  height: 100%;
   padding: 10px;
 }
 
 .basket__item {
-  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  min-height: 170px;
   padding: 10px;
   background-color: #fff;
   margin-bottom: 10px;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #c1c1d4;
 }
 
-.basket__item:last-child {
-  margin-bottom: 0px;
-}
-
-.basket__item-img {
-  width: 100px;
-}
-
+.basket__item-img,
 .basket__item-icon {
-  width: 100%;
+  width: 75px;
 }
 
 .basket__item-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  height: 100%;
-  width: 100%;
-  margin: 0px 20px 0px 20px;
+  padding: 0px 35px 0px 10px;
 }
 
-.basket__item-info-descr,
 .basket__item-info-counter {
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Museo Sans 500 Medium";
   margin-bottom: 15px;
+  color: #01011b;
 }
 
 .basket__item-info-descr,
@@ -117,13 +104,32 @@
   text-align: left;
   font-size: 13px;
   font-family: "Museo Sans 300 Light";
+  color: #01011b;
 }
 
-.basket__item-info-name,
+.basket__item-info-descr {
+  color: #7d7d91;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.basket__item-info-name {
+  font-family: "Museo Sans 700 Bold";
+  color: #01011b;
+  font-size: 16px;
+}
+
+.basket__item-info-availability {
+  font-size: 12px;
+  color: #7d7d91;
+  font-family: "Museo Sans 300 Light";
+  padding: 5px 0px 20px;
+}
+
 .basket__items-empty-title {
   font-size: 18px;
   font-family: "Museo Sans 700 Bold";
-  margin-bottom: 5px;
+  color: #01011b;
 }
 
 .basket__item-info-wrapper {
@@ -155,11 +161,23 @@
   background-color: #ff0000;
 }
 
-.basket__item-info-price,
 .basket__bottom-total-price-text,
+.basket__item-info-price,
 .basket__bottom-total-price-value {
-  font-size: 16px;
   font-family: "Museo Sans 700 Bold";
+  color: #01011b;
+}
+
+.basket__item-info-price {
+  font-size: 14px;
+  color: #c70101;
+}
+
+.basket__bottom-total-price-text {
+  font-size: 18px;
+}
+.basket__bottom-total-price-value {
+  font-size: 20px;
 }
 
 .basket__bottom-total-price {
@@ -193,4 +211,5 @@
 .basket__items-empty-descr {
   font-size: 14px;
   text-align: center;
+  color: #01011b;
 }

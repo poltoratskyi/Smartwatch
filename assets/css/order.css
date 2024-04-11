@@ -1,0 +1,130 @@
+/* Order block */
+.checkout {
+  background-color: #f4f4f9;
+  padding: 20px 0px;
+}
+
+.checkout__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkout__title {
+  font-size: 20px;
+  text-align: center;
+  font-family: "Museo Sans 700 Bold";
+  margin-bottom: 40px;
+}
+
+.checkout__order-review {
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #c1c1d4;
+}
+
+.modal-callback__form-title,
+.checkout__order-title {
+  font-size: 18px;
+  font-family: "Museo Sans 500 Medium";
+  margin-bottom: 10px;
+}
+
+.checkout__order-title {
+  text-align: center;
+}
+
+.modal-callback__form_checkout {
+  display: grid;
+  align-items: start;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.modal-callback__form_checkout:last-child {
+  margin-bottom: 0px;
+}
+
+.checkout__order-review-heading {
+  font-family: "Museo Sans 700 Bold";
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+  border-bottom: 1px solid #e8e8f3;
+}
+
+.checkout__order-review-item-info {
+  margin: 15px 0px 0px 30px;
+}
+
+.checkout__order-review-item-info-product,
+.checkout__order-review-item-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkout__order-review-item-info-product,
+.checkout__order-review-item-info-product-name,
+.checkout__order-review-item-info-product-quantity,
+.checkout__order-review-item-info-descr,
+.checkout__order-review-checkbox {
+  font-family: "Museo Sans 300 Light";
+  font-size: 14px;
+  color: #7d7d91;
+}
+
+.checkout__order-review-item-info-product {
+  margin-bottom: 20px;
+}
+
+.checkout__order-review-item-info-product-descr {
+  color: #01011b;
+  line-height: 20px;
+  text-align: justify;
+}
+
+.checkout__order-review-item-info-product-price,
+.checkout__order-review-item-info-product-total-descr,
+.checkout__order-review-total {
+  font-family: "Museo Sans 700 Bold";
+  font-size: 16px;
+  color: #01011b;
+}
+
+.checkout__order-review-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+}
+
+.checkout__order-review-checkbox-link:hover {
+  text-decoration: underline;
+}
+
+.checkout__order-review-checkbox {
+  color: #01011b;
+}
+
+#termsCheckbox {
+  margin: 16px 0px;
+}
+
+.modal-callback__form-input:last-child {
+  margin-bottom: 0px;
+}
+
+.checkout__order-review-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e8f3;
+}
+
+.checkout__order-review-item-info-icon {
+  max-width: 100px;
+}

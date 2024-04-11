@@ -1,5 +1,11 @@
 $(document).ready(function () {
-  /* Initializing plugins */
+  /*  Preloader block */
+
+  $(".preloader").fadeOut(500);
+
+  /* /////////////////////////////////////////////////////////////////////// */
+
+  /* Initializing plugins block */
 
   /* Slick Carousel */
   $(".carousel___content-slider").slick({
@@ -59,6 +65,7 @@ $(document).ready(function () {
     if ($(this).hasClass("hamburger_active")) {
       $(mobileMenu).slideDown(500);
       menuVisible = true;
+      arrow.css("transform", "rotate(315deg)");
     } else {
       $(mobileMenu).slideUp(500);
       menuVisible = false;
@@ -90,15 +97,41 @@ $(document).ready(function () {
       /* Dropdown menu is visibile */
       if (dropdownMenu.is(":visible")) {
         dropdownMenu.slideUp(500);
+        arrow.css("transform", "rotate(315deg)");
       } else {
         /* Dropdown menu is hidden */
-        dropdownMenu.slideDown();
+        dropdownMenu.slideDown(500);
+        arrow.css("transform", "rotate(135deg)");
       }
     });
   };
 
   dropdownActive(headerMenuItem, menuDropdown);
   dropdownActive(mobileMenuItem, mobileMenuDropdown);
+
+  /* Click -> footer mobile menu */
+  const title = $(".footer__mobile-info-sidebar-title");
+  const ul = $(".footer__mobile-info-sidebar-lists");
+  const arrow = $(".more-arrow-down");
+
+  const footerDropdownActive = (element) => {
+    element.on("click", function () {
+      const clickedTitle = $(this).siblings(ul);
+      const clickedArrow = $(this).find(arrow);
+
+      /* Ul menu is visibile */
+      if (clickedTitle.is(":visible")) {
+        clickedTitle.slideUp(500);
+        clickedArrow.css("transform", "rotate(315deg)");
+      } else {
+        /* Ul menu is hidden */
+        clickedTitle.slideDown(500);
+        clickedArrow.css("transform", "rotate(135deg)");
+      }
+    });
+  };
+
+  footerDropdownActive(title);
 
   /* Click -> main links */
   const generalMenulinks = $(".header__content-menu-item-link");
@@ -107,8 +140,8 @@ $(document).ready(function () {
   const menuLinks = (link, menu) => {
     link.each(function () {
       $(this).on("click", function (e) {
-        e.preventDefault();
         $(menu).slideUp(500);
+        arrow.css("transform", "rotate(315deg)");
         $(mobileMenu).slideUp(500);
         $(hamburger).removeClass("hamburger_active");
         document.body.style.overflow = "auto";
@@ -122,13 +155,13 @@ $(document).ready(function () {
   /* Click -> dropdown links */
   const dropdownMenuLinks = (link, menu) => {
     $(link).on("click", function (e) {
-      e.preventDefault();
-
       const dropdownMenu = $(this).closest(menu);
 
       /* Dropdown menu is visibile */
       if (dropdownMenu.is(":visible")) {
+        arrow.css("transform", "rotate(315deg)");
         dropdownMenu.slideUp(500);
+
         $(mobileMenu).slideUp(500);
 
         /* isMenuOpen = false; */
@@ -155,16 +188,14 @@ $(document).ready(function () {
   const success = $(".success");
 
   /* Open modal window of registration form -> btn */
-  $("[data-modal=consultation]").on("click", function (e) {
-    e.preventDefault();
+  $("[data-modal=consultation]").on("click", function () {
     $(modalOverlay).fadeIn(500);
     document.body.style.overflow = "hidden";
   });
 
   /* Close modal windows -> btn */
   const closeModalWindow = (item, value) => {
-    item.on("click", function (e) {
-      e.preventDefault();
+    item.on("click", function () {
       $(value).fadeOut(500);
       document.body.style.overflow = "auto";
     });
@@ -236,7 +267,7 @@ $(document).ready(function () {
 
   smoothScroll(
     $(
-      ".header__content-menu-item-link, .header__content-logo-link, .header__content-dropdown-item-link, .mobile-menu-item-link, .mobile-menu-dropdown-item-link, .scroll__to-up, .header__consultation-link, #order-link"
+      ".header__content-menu-item-link, .header__content-logo-link, .header__content-dropdown-item-link, .mobile-menu-item-link, .mobile-menu-dropdown-item-link, .scroll__to-up, .header__consultation-link, #order-link, .main-logo__link"
     )
   );
 
@@ -306,6 +337,7 @@ $(document).ready(function () {
       $(firstElement).css("display", "flex");
       $(secondElement).css("display", "none");
       $(thirdElement).text("За покупками");
+      basketItems.css("overflow-y", "hidden");
     }
   };
 
@@ -405,62 +437,61 @@ $(document).ready(function () {
       /* Update total price state -> localStorage */
       updateTotalPrice();
 
+      /* Remove product -> basket */
+      $(this).closest(".basket__item").slideUp(250);
+
       /* Update empty basket state -> Basket */
       isEmpty($(".basket__items-empty"), $("#order"), $("#order-link"));
-
-      /* Remove product -> basket */
-      $(this)
-        .closest(".basket__item")
-        .animate(
-          {
-            opacity: 0,
-            marginTop: "-180px",
-          },
-          200,
-          function () {
-            $(this).remove();
-          }
-        );
     });
   };
 
   /* Update basket state <- localStorage */
   const updateBasket = () => {
     selectedProducts.forEach(function (product) {
-      const cartItemHTML = `<li data-id=${product.productId} class="basket__item">
-      <picture class="basket__item-img">
-        <source
-          srcset="${product.productImg}"
-          type="image/webp"
-        />
+      const cartItemHTML = `
+    <li data-id=${product.productId} class="basket__item">
+        <picture class="basket__item-img">
+            <source
+                srcset="${product.productImgWebP}"
+                type="image/webp"
+            />
 
-        <img
-          class="basket__item-icon"
-          src="${product.productImg}"
-          loading="lazy"
-          alt="pulsometr"
-        />
-      </picture>
+            <img
+                class="basket__item-icon"
+                src="${product.productImg}"
+                alt="pulsometr"
+            />
+        </picture>
 
-      <div class="basket__item-info">
-        <div class="basket__item-del">&times;</div>
+        <div class="basket__item-info">
+            <span class="basket__item-info-name">
+                    ${product.productName} 
+            </span> 
 
-        <p class="basket__item-info-name">${product.productName}</p>
+            <span class="basket__item-info-availability">
+              В наличии 
+            </span> 
 
-        <p class="basket__item-info-descr">
-          ${product.productDescr}
-        </p>
+            <div class="basket__item-info-wrapper">
+                <div class="basket__item-info-counter">
+                    <span class="basket__item-info-counter-minus">-</span>
 
-        <div class="basket__item-info-wrapper">
-          <div class="basket__item-info-counter">
-            <span class="basket__item-info-counter-minus">-</span>
-            <span class="basket__item-info-value">${product.valueCounter}</span>
-            <span class="basket__item-info-counter-plus">+</span>
-          </div>
+                    <span class="basket__item-info-value">
+                        ${product.valueCounter}
+                    </span>
 
-          <span class="basket__item-info-price">${product.totalPrice} $</span>
+                    <span class="basket__item-info-counter-plus">+</span>
+                </div>
+
+                <span class="basket__item-info-price">
+                    ${product.totalPrice} $
+                </span>
+            </div>
         </div>
-      </div>
+
+        <span class="basket__item-del">
+            &#x2715; 
+        </span> 
     </li>`;
 
       basketItems.prepend(cartItemHTML);
@@ -515,6 +546,9 @@ $(document).ready(function () {
     basketOpen(button);
 
     button.on("click", function () {
+      /* Toggle scroll -> basket */
+      basketItems.css("overflow-y", "auto");
+
       const productId = button.closest(".catalog__content").attr("data-id");
 
       const isProductSelected = selectedProducts.some(
@@ -530,6 +564,12 @@ $(document).ready(function () {
           .closest(".catalog__content")
           .find(".catalog__content-img img")
           .attr("src");
+
+        /* Get the WebP img product */
+        const productImgWebP = button
+          .closest(".catalog__content")
+          .find(".catalog__content-img source")
+          .attr("srcset");
 
         /* Get the product name */
         const productName = button
@@ -567,6 +607,7 @@ $(document).ready(function () {
         selectedProducts.push({
           productId: productId,
           productImg: productImg,
+          productImgWebP: productImgWebP,
           productName: productName,
           productDescr: productDescr,
           totalPrice: totalPrice,
@@ -578,40 +619,46 @@ $(document).ready(function () {
           JSON.stringify(selectedProducts)
         );
 
-        const cartItemHTML = `<li data-id=${productId} class="basket__item">
-          <picture class="basket__item-img">
-            <source
-              srcset="${productImg}"
-              type="image/webp"
-            />
+        const cartItemHTML = `
+        <li data-id=${productId} class="basket__item">
+            <picture class="basket__item-img">
+                <source
+                    srcset="${productImgWebP}"
+                    type="image/webp"
+                />
 
-            <img
-              class="basket__item-icon"
-              src="${productImg}"
-              loading="lazy"
-              alt="pulsometr"
-            />
-          </picture>
+                <img
+                    class="basket__item-icon"
+                    src="${productImg}"
+                    alt="pulsometr"
+                />
+            </picture>
 
-          <div class="basket__item-info">
-            <div class="basket__item-del">&times;</div>
+            <div class="basket__item-info">
+                <span class="basket__item-info-name">
+                    ${productName} 
+                </span> 
 
-            <p class="basket__item-info-name">${productName}</p>
+                <span class="basket__item-info-availability">
+                  В наличии 
+                </span> 
 
-            <p class="basket__item-info-descr">
-              ${productDescr}
-            </p>
+                <div class="basket__item-info-wrapper">
+                    <div class="basket__item-info-counter">
+                        <span class="basket__item-info-counter-minus">-</span>
 
-            <div class="basket__item-info-wrapper">
-              <div class="basket__item-info-counter">
-                <span class="basket__item-info-counter-minus">-</span>
-                <span class="basket__item-info-value">${valueCounter}</span>
-                <span class="basket__item-info-counter-plus">+</span>
-              </div>
+                        <span class="basket__item-info-value">${valueCounter}</span>
 
-              <span class="basket__item-info-price">${totalPrice} $</span>
+                        <span class="basket__item-info-counter-plus">+</span>
+                    </div>
+
+                    <span class="basket__item-info-price">${totalPrice} $</span>
+                </div>
             </div>
-          </div>
+
+            <span class="basket__item-del">
+                &#x2715; 
+            </span> 
         </li>`;
 
         basketItems.prepend(cartItemHTML);
@@ -635,6 +682,4 @@ $(document).ready(function () {
 
   /* Remove the product -> localStorage */
   removeProduct();
-
-  /* /////////////////////////////////////////////////////////////////////// */
 });

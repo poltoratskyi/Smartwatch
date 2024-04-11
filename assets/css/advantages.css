@@ -9,6 +9,7 @@
   font-size: 24px;
   text-align: center;
   margin-bottom: 70px;
+  color: #01011b;
 }
 
 .advantages__content {
@@ -34,13 +35,13 @@
 .advantages__content-item-title {
   text-align: center;
   font-size: 18px;
-  color: #0d0d0d;
+  color: #01011b;
   font-family: "Museo Sans 700 Bold";
   margin-bottom: 20px;
 }
 
 .advantages__content-item-description {
-  color: #0d0d0d;
+  color: #01011b;
   font-size: 14px;
   line-height: 24px;
   font-family: "Museo Sans 300 Light";

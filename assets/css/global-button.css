@@ -1,6 +1,5 @@
 .button {
   font-family: "Museo Sans 500 Medium";
-  border-radius: 5px;
   padding: 10px 20px;
   border: none;
   background-color: #c70101;
@@ -53,6 +52,7 @@
 
 .button_order,
 .button_order-link {
+  text-align: center;
   padding: 15px 30px;
   font-size: 16px;
   width: 100%;
@@ -60,13 +60,21 @@
 }
 
 .button_order-link {
-  text-align: center;
   background-color: #fff;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #c1c1d4;
   color: #6b6b6b;
   margin-bottom: 0px;
 }
 
 .button_order-link:hover {
   color: #fff;
+}
+
+.button_checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 40px;
+  padding: 0;
 }

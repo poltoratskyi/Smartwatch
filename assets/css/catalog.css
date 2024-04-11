@@ -4,6 +4,7 @@
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 70px;
+  color: #01011b;
 }
 
 .catalog__tabs {
@@ -19,7 +20,7 @@
   align-items: center;
   width: 220px;
   height: 50px;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #c1c1d4;
   color: #6b6b6b;
   font-size: 18px;
   font-family: "Museo Sans 500 Medium";
@@ -62,7 +63,7 @@
 .catalog__content {
   display: grid;
   justify-items: center;
-  border: 2px solid #d0d0d0;
+  border: 1px solid #c1c1d4;
   min-height: 650px;
   padding: 20px 20px;
   animation-duration: 1s;
@@ -82,14 +83,14 @@
 }
 
 .catalog__content-label {
-  color: #0d0d0d;
+  color: #01011b;
   font-size: 16px;
   font-family: "Museo Sans 700 Bold";
   margin-bottom: 10px;
 }
 
 .catalog__content-description {
-  color: #0d0d0d;
+  color: #01011b;
   font-size: 14px;
   line-height: 20px;
   font-family: "Museo Sans 300 Light";
@@ -114,7 +115,7 @@
 .catalog__content-line {
   height: 0;
   width: 90%;
-  border-bottom: 1px solid #d0d0d0;
+  border-bottom: 1px solid #c1c1d4;
   margin-bottom: 20px;
 }
 
@@ -127,7 +128,7 @@
 }
 
 .catalog__content-price {
-  color: #555;
+  color: #acacbe;
   font-size: 14px;
   font-family: "Museo Sans 300 Light";
   text-decoration: line-through;

@@ -4,6 +4,7 @@
   font-family: "Museo Sans 700 Bold";
   text-transform: uppercase;
   margin-bottom: 70px;
+  color: #01011b;
 }
 
 .review-wrapper {
@@ -17,9 +18,8 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 30px;
-  border-radius: 5px;
   padding: 15px;
-  box-shadow: 0 0 5px 0.5px rgba(0, 0, 0, 0.3);
+  border: 1px solid #c1c1d4;
 }
 
 .review__item:last-child {
@@ -44,10 +44,11 @@
 .review__item-content-name {
   font-size: 18px;
   font-family: "Museo Sans 700 Bold";
+  color: #01011b;
 }
 
 .review__item-content-experience {
-  color: #646464;
+  color: #acacbe;
   font-size: 14px;
   font-family: "Museo Sans 300 Light";
 }

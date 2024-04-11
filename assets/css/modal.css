@@ -12,8 +12,8 @@
 .modal-callback__close,
 .success__close {
   position: absolute;
-  top: 0;
-  font-size: 55px;
+  top: 2%;
+  font-size: 35px;
   color: #c70101;
   cursor: pointer;
 }
@@ -40,6 +40,7 @@
 .success__title-label {
   font-size: 18px;
   font-family: "Museo Sans 700 Bold";
+  color: #01011b;
 }
 
 .modal-callback__title-description,
@@ -58,7 +59,6 @@
 .modal-callback__form-input {
   height: 50px;
   width: 100%;
-  border-radius: 5px;
   background-color: #fff;
   border: none;
   padding: 0 20px;
@@ -66,5 +66,5 @@
   font-size: 14px;
   font-family: "Museo Sans 300 Light";
   margin-bottom: 15px;
-  box-shadow: 0 0 2px 0.5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #c1c1d4;
 }
