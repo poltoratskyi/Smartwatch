@@ -12,6 +12,129 @@ $(document).ready(function () {
 
   /* /////////////////////////////////////////////////////////////////////// */
 
+  /* Counter */
+  const Counter = () => {
+    /* Plus btn */
+    $("[data-modal=plus]").each(function () {
+      const selectedPlusBtn = $(this);
+
+      /* Find item id -> basket */
+      const selectedItemId = selectedPlusBtn
+        .closest(".basket__item")
+        .attr("data-id");
+
+      /* Click - plus */
+      selectedPlusBtn.on("click", function () {
+        /* Find product index / localStorage <-> Item id / Basket */
+        const selectedProductIndex = selectedProducts.findIndex(
+          (item) => item.productId === selectedItemId
+        );
+
+        if (selectedProductIndex !== -1) {
+          /* Found product index */
+          const selectedProduct = selectedProducts[selectedProductIndex];
+
+          /* Inc counter -> localStorage */
+          selectedProduct.valueCounter += 1;
+
+          /* Find total price value -> Basket */
+          const totalPriceElement = selectedPlusBtn
+            .closest(".basket__item-info-counter")
+            .siblings(".basket__item-info-price");
+
+          if (selectedProduct.isDiscountPrice) {
+            /* Inc total product price + Product price -> localStorage */
+            selectedProduct.totalPrice += selectedProduct.productPrice;
+
+            /* Change total price value -> Basket */
+            totalPriceElement.text(`${selectedProduct.totalPrice} $`);
+          } else {
+            /* if discount price === true  */
+            selectedProduct.totalPrice += selectedProduct.productDefaultPrice;
+
+            /* Change total price value -> Basket */
+            totalPriceElement.text(`${selectedProduct.totalPrice} $`);
+          }
+
+          /* Find price value -> Basket */
+          const counterElement = selectedPlusBtn.siblings(
+            ".basket__item-info-value"
+          );
+
+          /* Change counter value -> Basket */
+          counterElement.text(selectedProduct.valueCounter);
+
+          /* Update localStorage */
+          localStorage.setItem(
+            "selectedProducts",
+            JSON.stringify(selectedProducts)
+          );
+        }
+      });
+    });
+
+    /* Minus btn */
+    $("[data-modal=minus]").each(function () {
+      const selectedMinusBtn = $(this);
+
+      /* Click - minus */
+      selectedMinusBtn.on("click", function () {
+        /* Find item id -> basket */
+        const selectedItemId = selectedMinusBtn
+          .closest(".basket__item")
+          .attr("data-id");
+
+        /* Find product index / localStorage <-> Item id / Basket */
+        const selectedProductIndex = selectedProducts.findIndex(
+          (item) => item.productId === selectedItemId
+        );
+
+        if (selectedProductIndex !== -1) {
+          /* Found product index */
+          const selectedProduct = selectedProducts[selectedProductIndex];
+
+          /* Decrease counter -> localStorage */
+          if (selectedProduct.valueCounter > 1) {
+            selectedProduct.valueCounter -= 1;
+
+            /* Find total price value -> Basket */
+            const totalPriceElement = selectedMinusBtn
+              .closest(".basket__item-info-counter")
+              .siblings(".basket__item-info-price");
+
+            if (selectedProduct.isDiscountPrice) {
+              /* Decrease total product price by Product price -> localStorage */
+              selectedProduct.totalPrice -= selectedProduct.productPrice;
+
+              /* Change total price value -> Basket */
+              totalPriceElement.text(`${selectedProduct.totalPrice} $`);
+            } else {
+              /* Decrease total product price by Default product price -> localStorage */
+              selectedProduct.totalPrice -= selectedProduct.productDefaultPrice;
+
+              /* Change total price value -> Basket */
+              totalPriceElement.text(`${selectedProduct.totalPrice} $`);
+            }
+
+            /* Find counter value -> Basket */
+            const counterElement = selectedMinusBtn.siblings(
+              ".basket__item-info-value"
+            );
+
+            /* Change counter value -> Basket */
+            counterElement.text(selectedProduct.valueCounter);
+
+            /* Update localStorage */
+            localStorage.setItem(
+              "selectedProducts",
+              JSON.stringify(selectedProducts)
+            );
+          }
+        }
+      });
+    });
+  };
+
   /* Catalog <-> basket block */
   const basket = $(".basket");
   const basketOverlay = $(".basket-overlay");
@@ -86,6 +209,7 @@ $(document).ready(function () {
       /* Remove product -> basket */
       $(this).closest(".basket__item").slideUp(250);
 
+      /* Basket state */
       setTimeout(() => {
         isEmpty(selectedProducts);
       }, 500);
@@ -95,7 +219,9 @@ $(document).ready(function () {
   /* Cart products <- localStorage */
   const orderBasket = (element, ls) => {
     ls.forEach(function (product) {
-      const cartItemHTML = ` <li data-id=${product.productId} class="checkout__order-review-item">
+      const cartItemHTML = ` <li data-id=${
+        product.productId
+      } class="checkout__order-review-item">
 
             <picture class="checkout__order-review-item-info-img">
                 <source
@@ -117,9 +243,9 @@ $(document).ready(function () {
                         ${product.productName}
                     </span>
                     
-                    <p class="checkout__order-review-item-info-product-quantity">
+                    <span class="checkout__order-review-item-info-product-quantity">
                         ${product.valueCounter} шт.
-                    </p>
+                    </span>
                 </div>
 
                 <div class="checkout__order-review-item-info-product">
@@ -134,7 +260,11 @@ $(document).ready(function () {
                     </span>
 
                     <span class="checkout__order-review-item-info-product-price">
-                        ${product.totalPrice} $
+                    ${
+                      product.productPrice
+                        ? product.productPrice + " $"
+                        : product.productDefaultPrice + " $"
+                    }
                     </span>
                 </div>
             </div>
@@ -174,19 +304,23 @@ $(document).ready(function () {
                     В наличии 
                 </span> 
   
-              <div class="basket__item-info-wrapper">
+              <div class="basket__item-info-wrapper basket__item-info-wrapper_order">
                   <div class="basket__item-info-counter">
-                      <span class="basket__item-info-counter-minus">-</span>
+                        <button data-modal="minus"  class="basket__item-info-counter-minus">
+                            -
+                        </button>
   
-                      <span class="basket__item-info-value">
-                          ${product.valueCounter}
-                      </span>
+                        <span class="basket__item-info-value basket__item-info-value_order">
+                            ${product.valueCounter}
+                        </span>
   
-                      <span class="basket__item-info-counter-plus">+</span>
+                        <button data-modal="plus" class="basket__item-info-counter-plus">
+                            +
+                        </button>
                   </div>
-  
+
                   <span class="basket__item-info-price">
-                      ${product.totalPrice} $
+                  ${product.totalPrice + " $"}
                   </span>
               </div>
           </div>
@@ -208,7 +342,11 @@ $(document).ready(function () {
   /* Remove the product -> localStorage */
   removeProduct();
 
+  /* Basket state -> localStorage */
   isEmpty(selectedProducts);
+
+  /* Counter -> localStorage / Basket */
+  Counter();
 
   /* /////////////////////////////////////////////////////////////////////// */
 

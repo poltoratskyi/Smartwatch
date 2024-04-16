@@ -501,10 +501,6 @@
     min-width: 320px;
   }
 
-  .basket__item {
-    justify-content: space-between;
-  }
-
   .basket__item-info {
     padding: 0px 10px 0px 5px;
   }

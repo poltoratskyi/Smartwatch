@@ -1,8 +1,6 @@
+import catalog from "../data/catalog.js";
+
 $(document).ready(function () {
-  /*  Preloader block */
-
-  $(".preloader").fadeOut(500);
-
   /* /////////////////////////////////////////////////////////////////////// */
 
   /* Initializing plugins block */
@@ -275,6 +273,65 @@ $(document).ready(function () {
 
   /* Tab functionality block */
 
+  /* Render data base */
+  const catalogWrapper = $(".catalog__wrapper");
+
+  const catalogItems = (element) => {
+    catalog.forEach(function (item) {
+      const catalogItemsHTML = `<li
+            data-id="${item.id}"
+            data-modal="${item.dataModal}"
+			data-discount="${item.isDiscountPrice}"
+            class="catalog__content wow fadeInUp"
+          >
+            <picture class="catalog__content-img">
+              <source
+                srcset="${item.pictureWeb}"
+                type="image/webp"
+              />
+
+              <img
+                class="catalog__content-icon"
+                src="${item.pictureWeb}"
+                alt="pulsometr"
+              />
+            </picture>
+
+            <span class="catalog__content-label">${item.label}</span>
+
+            <p class="catalog__content-description">
+			${item.descr}
+            </p>
+
+            <a class="catalog__content-link" href="">ПОДРОБНЕЕ</a>
+
+            <span class="catalog__content-line"></span>
+
+            <div class="catalog__content-wrapper-price">
+
+			${
+        item.isDiscountPrice
+          ? `<span class="catalog__content-discount-price">${item.discountPrice} $</span>
+				<span class="catalog__content-price">${item.price} $</span>`
+          : `<span class="catalog__content-default-price">${item.price} $</span>`
+      }
+
+              <button
+                class="button button_catalog"
+                data-modal="append"
+                type="button"
+              >
+                Добавить в корзину
+              </button>
+            </div>
+        </li>`;
+
+      element.prepend(catalogItemsHTML);
+    });
+  };
+
+  catalogItems(catalogWrapper);
+
   $(".catalog__tab").each(function () {
     $(this).on("click", function () {
       if (!$(this).hasClass("catalog__tab_active")) {
@@ -325,8 +382,11 @@ $(document).ready(function () {
   const headerTotalPrice = $(".header__content-basket-descr");
   const bottomTotalPrice = $(".basket__bottom-total-price-value");
 
+  /* Default value of price */
   let totalAmount = 0;
-  /* let totalCounter = 1; */
+
+  /* Default value of counter */
+  let valueCounter = 1;
 
   let selectedProducts =
     JSON.parse(localStorage.getItem("selectedProducts")) || [];
@@ -363,27 +423,6 @@ $(document).ready(function () {
 
   basketClose($("#order-link"));
   basketClose(basketCloseBtn);
-
-  /* Counter */
-  /* const counterValue = $(".basket__item-info-value");
-  const counterPlus = $(".basket__item-info-counter-plus");
-  const counterMinus = $(".basket__item-info-counter-minus"); */
-
-  /* Value of counter */
-  const valueCounter = 1;
-
-  /* counterPlus.on("click", function () {
-    let value = parseInt(counterValue.text());
-    counterValue.text(value + 1);
-  });
-
-  counterMinus.on("click", function () {
-    let value = parseInt(counterValue.text());
-
-    if (value > 1) {
-      totalCounter.text(value - 1);
-    }
-  }); */
 
   /* Added button state <- localStorage */
   const addedButtonActive = (button) => {
@@ -473,18 +512,12 @@ $(document).ready(function () {
             </span> 
 
             <div class="basket__item-info-wrapper">
-                <div class="basket__item-info-counter">
-                    <span class="basket__item-info-counter-minus">-</span>
-
-                    <span class="basket__item-info-value">
-                        ${product.valueCounter}
-                    </span>
-
-                    <span class="basket__item-info-counter-plus">+</span>
-                </div>
+                <span class="basket__item-info-value">
+                    ${product.valueCounter} х
+                </span>
 
                 <span class="basket__item-info-price">
-                    ${product.totalPrice} $
+					${product.totalPrice + " $"}
                 </span>
             </div>
         </div>
@@ -533,6 +566,7 @@ $(document).ready(function () {
     }
   };
 
+  /* Main catalog items */
   $("[data-modal='append']").each(function () {
     const button = $(this);
 
@@ -549,50 +583,59 @@ $(document).ready(function () {
       /* Toggle scroll -> basket */
       basketItems.css("overflow-y", "auto");
 
+      /* Get the id of the product */
       const productId = button.closest(".catalog__content").attr("data-id");
+
+      /* Get the data modal of the product */
+      const dataModal = button.closest(".catalog__content").data("modal");
+
+      /* Get the data modal discount price of the product */
+      const isDiscountPrice = button
+        .closest(".catalog__content")
+        .data("discount");
+
+      /* Get the img of the product */
+      const productImg = button
+        .closest(".catalog__content")
+        .find(".catalog__content-img img")
+        .attr("src");
+
+      /* Get the WebP img of the product */
+      const productImgWebP = button
+        .closest(".catalog__content")
+        .find(".catalog__content-img source")
+        .attr("srcset");
+
+      /* Get the product name */
+      const productName = button
+        .closest(".catalog__content-wrapper-price")
+        .siblings(".catalog__content-label")
+        .text();
+
+      /* Get the product descr */
+      const productDescr = button
+        .closest(".catalog__content-wrapper-price")
+        .siblings(".catalog__content-description")
+        .text()
+        .trim();
+
+      /* Get the product -> default price */
+      const productDefaultPrice = parseInt(
+        button.siblings(".catalog__content-default-price").text()
+      );
+
+      /* Get the product -> discount price */
+      const productPrice = parseInt(
+        button.siblings(".catalog__content-discount-price").text()
+      );
 
       const isProductSelected = selectedProducts.some(
         (product) => Number(product.productId) === Number(productId)
       );
 
       if (!isProductSelected) {
-        /* Get the id product */
-        const productId = button.closest(".catalog__content").attr("data-id");
-
-        /* Get the img product */
-        const productImg = button
-          .closest(".catalog__content")
-          .find(".catalog__content-img img")
-          .attr("src");
-
-        /* Get the WebP img product */
-        const productImgWebP = button
-          .closest(".catalog__content")
-          .find(".catalog__content-img source")
-          .attr("srcset");
-
-        /* Get the product name */
-        const productName = button
-          .closest(".catalog__content-wrapper-price")
-          .siblings(".catalog__content-label")
-          .text();
-
-        /* Get the product descr */
-        const productDescr = button
-          .closest(".catalog__content-wrapper-price")
-          .siblings(".catalog__content-description")
-          .text()
-          .trim();
-
-        /* Get the product -> default price */
-        const productDefaultPrice = parseInt(
-          button.siblings(".catalog__content-default-price").text()
-        );
-
-        /* Get the product -> discount price */
-        const productPrice = parseInt(
-          button.siblings(".catalog__content-discount-price").text()
-        );
+        /* Update btn state -> click */
+        button.addClass("button_catalog_active").text("В корзине");
 
         /* Adding default/discount price -> header total price */
         const totalPrice = productPrice || productDefaultPrice;
@@ -600,16 +643,17 @@ $(document).ready(function () {
         headerTotalPrice.text(`${totalAmount} $`);
         bottomTotalPrice.text(`${totalAmount} $`);
 
-        /* Update btn state -> click */
-        button.addClass("button_catalog_active").text("В корзине");
-
         /* Adding product info -> localStorage  */
         selectedProducts.push({
+          dataModal: dataModal,
           productId: productId,
+          isDiscountPrice: isDiscountPrice,
           productImg: productImg,
           productImgWebP: productImgWebP,
           productName: productName,
           productDescr: productDescr,
+          productPrice: productPrice,
+          productDefaultPrice: productDefaultPrice,
           totalPrice: totalPrice,
           valueCounter: valueCounter,
         });
@@ -619,52 +663,16 @@ $(document).ready(function () {
           JSON.stringify(selectedProducts)
         );
 
-        const cartItemHTML = `
-        <li data-id=${productId} class="basket__item">
-            <picture class="basket__item-img">
-                <source
-                    srcset="${productImgWebP}"
-                    type="image/webp"
-                />
-
-                <img
-                    class="basket__item-icon"
-                    src="${productImg}"
-                    alt="pulsometr"
-                />
-            </picture>
-
-            <div class="basket__item-info">
-                <span class="basket__item-info-name">
-                    ${productName} 
-                </span> 
-
-                <span class="basket__item-info-availability">
-                  В наличии 
-                </span> 
-
-                <div class="basket__item-info-wrapper">
-                    <div class="basket__item-info-counter">
-                        <span class="basket__item-info-counter-minus">-</span>
-
-                        <span class="basket__item-info-value">${valueCounter}</span>
-
-                        <span class="basket__item-info-counter-plus">+</span>
-                    </div>
-
-                    <span class="basket__item-info-price">${totalPrice} $</span>
-                </div>
-            </div>
-
-            <span class="basket__item-del">
-                &#x2715; 
-            </span> 
-        </li>`;
-
-        basketItems.prepend(cartItemHTML);
-
-        /* Open basket modal window */
-        basketOpen(button);
+        /* Transfer product info -> Cart item */
+        cartItem(
+          productId,
+          productImg,
+          productImgWebP,
+          productName,
+          productPrice,
+          totalPrice,
+          valueCounter
+        );
 
         /* Remove the product -> Basket */
         removeProduct();
@@ -682,4 +690,57 @@ $(document).ready(function () {
 
   /* Remove the product -> localStorage */
   removeProduct();
+
+  /* Cart item -> basket */
+  const cartItem = (
+    productId,
+    productImg,
+    productImgWebP,
+    productName,
+    productPrice,
+    totalPrice,
+    valueCounter
+  ) => {
+    let html = `
+    <li data-id=${productId} class="basket__item">
+        <picture class="basket__item-img">
+            <source
+                srcset="${productImgWebP}"
+                type="image/webp"
+            />
+
+            <img
+                class="basket__item-icon"
+                src="${productImg}"
+                alt="pulsometr"
+            />
+        </picture>
+
+        <div class="basket__item-info">
+            <span class="basket__item-info-name">
+                    ${productName} 
+            </span> 
+
+            <span class="basket__item-info-availability">
+              В наличии 
+            </span> 
+
+            <div class="basket__item-info-wrapper">
+                <span class="basket__item-info-value">
+                    ${valueCounter} х
+                </span>
+
+                <span class="basket__item-info-price">
+					${productPrice ? productPrice + " $" : totalPrice + " $"}
+                </span>
+            </div>
+        </div>
+
+        <span class="basket__item-del">
+            &#x2715; 
+        </span> 
+    </li>`;
+
+    basketItems.prepend(html);
+  };
 });

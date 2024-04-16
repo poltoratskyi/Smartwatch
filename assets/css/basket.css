@@ -9,7 +9,7 @@
   background-color: #f2f2f2;
   right: -100%;
   transition: right 0.8s cubic-bezier(0.4, -0.2, 0.4, 1.2);
-  min-width: 350px;
+  min-width: 370px;
 }
 
 .basket_active {
@@ -67,12 +67,12 @@
 .basket__items {
   overflow-y: auto;
   height: 100%;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
 }
 
 .basket__item {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
   background-color: #fff;
@@ -83,6 +83,7 @@
 .basket__item-img,
 .basket__item-icon {
   width: 75px;
+  height: 75px;
 }
 
 .basket__item-info {
@@ -90,6 +91,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0px 35px 0px 10px;
+  width: 100%;
 }
 
 .basket__item-info-counter {
@@ -117,6 +119,7 @@
   font-family: "Museo Sans 700 Bold";
   color: #01011b;
   font-size: 16px;
+  line-height: 20px;
 }
 
 .basket__item-info-availability {
@@ -132,9 +135,13 @@
   color: #01011b;
 }
 
-.basket__item-info-wrapper {
+.basket__item-info-wrapper,
+.basket__item-info-wrapper_order {
   display: flex;
   align-items: center;
+}
+
+.basket__item-info-wrapper_order {
   justify-content: space-between;
   width: 100%;
 }
@@ -168,9 +175,21 @@
   color: #01011b;
 }
 
-.basket__item-info-price {
+.basket__item-info-price,
+.basket__item-info-value,
+.basket__item-info-value_order {
   font-size: 14px;
   color: #c70101;
+}
+
+.basket__item-info-value {
+  color: #c1c1d4;
+  margin-right: 5px;
+}
+
+.basket__item-info-value_order {
+  color: #01011b;
+  margin: 0;
 }
 
 .basket__bottom-total-price-text {
