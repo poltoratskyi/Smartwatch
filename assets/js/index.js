@@ -266,7 +266,7 @@ $(document).ready(function () {
         },
         email: {
           required: true,
-          email: true,
+          emailPublic: true,
         },
       },
       messages: {

@@ -78,7 +78,6 @@ $(document).ready(function () {
         address: {
           required: true,
           minlength: 1,
-          cyrillic: true,
         },
       },
 
