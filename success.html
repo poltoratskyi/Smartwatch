@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <link
+      rel="shorcut icon"
+      href="assets/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="assets/css/index.css" />
+
+    <title>Smart watch</title>
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="loader"></div>
+    </div>
+
+    <div class="background">
+      <div class="container">
+        <header class="success">
+          <div class="success__wrapper">
+            <div class="success__info">
+              <h2 class="success__info-title">Спасибо за заказ!</h2>
+              <p class="success__info-description">
+                В ближайшее время мы свяжемся с вами. <br />
+                Наш номер телеофона
+                <b> +380 (XX) XXX XX XX </b>
+              </p>
+            </div>
+
+            <a id="comeback" href="index.html" class="button button_checkout">
+              Главная страница
+            </a>
+          </div>
+        </header>
+
+        <section class="personal-info">
+          <div class="personal-info__content">
+            <div class="personal-info__content-title">
+              <h2>Детали заказа</h2>
+            </div>
+
+            <ul class="personal-info__content-items"></ul>
+          </div>
+        </section>
+
+        <section class="product-details">
+          <div class="product-details__content">
+            <div class="product-details__content-title">
+              <h2>Корзина</h2>
+            </div>
+
+            <ul class="review-items review-items_success"></ul>
+
+            <div class="review-total review-total_success">
+              <span class="review-total-descr review-total-descr_success">
+                Сумма заказа:
+              </span>
+
+              <span class="review-total-price"></span>
+            </div>
+          </div>
+        </section>
+
+        <div class="adv">
+          <h2 class="adv__title">
+            Создай свой уникальный стиль. <br />
+            Скидка 15% на Polar Vantage V и Polar Vantage все еще действует!
+          </h2>
+
+          <a id="1" href="index.html#to-catalog">
+            <picture class="adv__img">
+              <source
+                srcset="assets/img/Webp/Polar-Vantage-V-webp-min.webp"
+                type="image/webp"
+              />
+
+              <img
+                class="adv__icon"
+                src="assets/img/Polar-Vantage-V-min.jpg"
+                alt="adv"
+              />
+            </picture>
+          </a>
+        </div>
+
+        <section class="feedback">
+          <h3 class="feedback__title"><b>Появились вопросы ?</b></h3>
+
+          <p class="feedback__descr">
+            Наиболее оперативный ответ Вы получите позвонив нам по номеру
+            <a class="feedback__descr-number" href="tel:+1(23)456789">
+              <span><b> +380 (XX) XXX XX XX </b> </span>
+            </a>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <div class="footer-copyright footer-copyright_success">
+      <p class="footer-copyright-descr">
+        ООО "Фитнес Лайф" © 2024 – Независимый онлайн-ресурс, специализирующийся
+        на товарах Polar для активного образа жизни.
+      </p>
+    </div>
+
+    <script src="assets/js/jquery-3.7.1.js"></script>
+
+    <script src="assets/js/success.js"></script>
+  </body>
+</html>

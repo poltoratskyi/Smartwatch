@@ -8,132 +8,155 @@ $(document).ready(function () {
   /* Initializing plugins block */
 
   /* Mask input */
-  $("input[name=phone]").mask("+1(23) 999 999", { autoclear: false });
+  $("input[name=phone]").mask("+380(99) 999 99 99", { autoclear: false });
 
-  /* /////////////////////////////////////////////////////////////////////// */
+  /* Registration validation and sumbit the form */
+  $.validator.addMethod(
+    "cyrillic",
+    function (value, element) {
+      return this.optional(element) || /^[а-яА-ЯёЁ]+$/i.test(value);
+    },
+    "Пожалуйста, введите только кириллические символы"
+  );
 
-  /* Counter */
-  const Counter = () => {
-    /* Plus btn */
-    $("[data-modal=plus]").each(function () {
-      const selectedPlusBtn = $(this);
+  $.validator.addMethod(
+    "numberUA",
+    function (value, element) {
+      return (
+        this.optional(element) ||
+        /^\+380\((?:50|66|95|99|63|67|68|96|97|98|39|73|93)\) \d{3} \d{2} \d{2}$/i.test(
+          value
+        )
+      );
+    },
+    "Пожалуйста, введите корректный номер телефона в формате +380(XX) XXX XX XX"
+  );
 
-      /* Find item id -> basket */
-      const selectedItemId = selectedPlusBtn
-        .closest(".basket__item")
-        .attr("data-id");
+  $.validator.addMethod(
+    "emailPublic",
+    function (value, element) {
+      return (
+        this.optional(element) ||
+        /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com|yandex\.ru)$/i.test(
+          value
+        )
+      );
+    },
+    "Пожалуйста, введите корректный Email"
+  );
 
-      /* Click - plus */
-      selectedPlusBtn.on("click", function () {
-        /* Find product index / localStorage <-> Item id / Basket */
-        const selectedProductIndex = selectedProducts.findIndex(
-          (item) => item.productId === selectedItemId
-        );
+  jQuery.validator.setDefaults({
+    success: "valid",
+  });
 
-        if (selectedProductIndex !== -1) {
-          /* Found product index */
-          const selectedProduct = selectedProducts[selectedProductIndex];
+  const formValidate = (form) => {
+    $(form).validate({
+      rules: {
+        name: {
+          required: true,
+          minlength: 2,
+          cyrillic: true,
+        },
+        surname: {
+          required: true,
+          minlength: 2,
+          cyrillic: true,
+        },
+        phone: {
+          required: true,
+          numberUA: true,
+        },
+        email: {
+          required: true,
+          emailPublic: true,
+        },
+        city: {
+          required: true,
+          minlength: 2,
+          cyrillic: true,
+        },
+        address: {
+          required: true,
+          minlength: 1,
+          cyrillic: true,
+        },
+      },
 
-          /* Inc counter -> localStorage */
-          selectedProduct.valueCounter += 1;
+      messages: {
+        name: {
+          required: "Пожалуйста, введите ваше имя",
+          minlength: "Имя должно быть не короче двух символов",
+        },
+        surname: {
+          required: "Пожалуйста, введите вашу фамилию",
+          minlength: "Фамилия должна быть не короче двух символов",
+        },
+        phone: {
+          required: "Пожалуйста, введите ваш номер телефона",
+        },
+        email: {
+          required: "Пожалуйста, введите ваш Email",
+          email: "Пожалуйста, введите корректный Email",
+        },
+        city: {
+          required: "Пожалуйста, введите ваш город",
+          minlength: "Название города должно быть не короче двух символов",
+        },
+        address: {
+          required: "Пожалуйста, введите вашу улицу",
+          minlength:
+            "Название вашей улицы должно быть не короче одного символа",
+        },
+      },
 
-          /* Find total price value -> Basket */
-          const totalPriceElement = selectedPlusBtn
-            .closest(".basket__item-info-counter")
-            .siblings(".basket__item-info-price");
+      submitHandler: function (form, event) {
+        event.preventDefault();
 
-          if (selectedProduct.isDiscountPrice) {
-            /* Inc total product price + Product price -> localStorage */
-            selectedProduct.totalPrice += selectedProduct.productPrice;
+        /* Create the new array counter item -> localStorage*/
+        let orderCounter =
+          JSON.parse(localStorage.getItem("orderCounter")) || 0;
 
-            /* Change total price value -> Basket */
-            totalPriceElement.text(`${selectedProduct.totalPrice} $`);
-          } else {
-            /* if discount price === true  */
-            selectedProduct.totalPrice += selectedProduct.productDefaultPrice;
+        orderCounter += 1;
 
-            /* Change total price value -> Basket */
-            totalPriceElement.text(`${selectedProduct.totalPrice} $`);
-          }
+        /* Create the new array persone info -> localStorage*/
+        let personalInfo =
+          JSON.parse(localStorage.getItem("personalInfo")) || [];
 
-          /* Find price value -> Basket */
-          const counterElement = selectedPlusBtn.siblings(
-            ".basket__item-info-value"
-          );
+        /* Get all inputs */
+        const formData = {
+          name: $(form).find("input[name='name']").val(),
+          surname: $(form).find("input[name='surname']").val(),
+          phone: $(form).find("input[name='phone']").val(),
+          email: $(form).find("input[name='email']").val(),
+          city: $(form).find("input[name='city']").val(),
+          address: $(form).find("input[name='address']").val(),
+          orderNumber: orderCounter,
+        };
 
-          /* Change counter value -> Basket */
-          counterElement.text(selectedProduct.valueCounter);
+        /* Adding form data -> localStorage  */
+        personalInfo.push(formData);
 
-          /* Update localStorage */
-          localStorage.setItem(
-            "selectedProducts",
-            JSON.stringify(selectedProducts)
-          );
-        }
-      });
-    });
+        /* Updated array -> LocalStorage */
+        localStorage.setItem("personalInfo", JSON.stringify(personalInfo));
 
-    /* Minus btn */
-    $("[data-modal=minus]").each(function () {
-      const selectedMinusBtn = $(this);
+        /* Updated array -> LocalStorage */
+        localStorage.setItem("orderCounter", JSON.stringify(orderCounter));
 
-      /* Click - minus */
-      selectedMinusBtn.on("click", function () {
-        /* Find item id -> basket */
-        const selectedItemId = selectedMinusBtn
-          .closest(".basket__item")
-          .attr("data-id");
+        /* Clear all found inputs */
+        setTimeout(() => {
+          $(form)
+            .find('input[type="text"], input[type="tel"], input[type="email"]')
+            .val("");
 
-        /* Find product index / localStorage <-> Item id / Basket */
-        const selectedProductIndex = selectedProducts.findIndex(
-          (item) => item.productId === selectedItemId
-        );
-
-        if (selectedProductIndex !== -1) {
-          /* Found product index */
-          const selectedProduct = selectedProducts[selectedProductIndex];
-
-          /* Decrease counter -> localStorage */
-          if (selectedProduct.valueCounter > 1) {
-            selectedProduct.valueCounter -= 1;
-
-            /* Find total price value -> Basket */
-            const totalPriceElement = selectedMinusBtn
-              .closest(".basket__item-info-counter")
-              .siblings(".basket__item-info-price");
-
-            if (selectedProduct.isDiscountPrice) {
-              /* Decrease total product price by Product price -> localStorage */
-              selectedProduct.totalPrice -= selectedProduct.productPrice;
-
-              /* Change total price value -> Basket */
-              totalPriceElement.text(`${selectedProduct.totalPrice} $`);
-            } else {
-              /* Decrease total product price by Default product price -> localStorage */
-              selectedProduct.totalPrice -= selectedProduct.productDefaultPrice;
-
-              /* Change total price value -> Basket */
-              totalPriceElement.text(`${selectedProduct.totalPrice} $`);
-            }
-
-            /* Find counter value -> Basket */
-            const counterElement = selectedMinusBtn.siblings(
-              ".basket__item-info-value"
-            );
-
-            /* Change counter value -> Basket */
-            counterElement.text(selectedProduct.valueCounter);
-
-            /* Update localStorage */
-            localStorage.setItem(
-              "selectedProducts",
-              JSON.stringify(selectedProducts)
-            );
-          }
-        }
-      });
+          /* Open the success page */
+          window.location.href = "success.html";
+        }, 1000);
+      },
     });
   };
+  formValidate("#orderForm");
+
+  /* /////////////////////////////////////////////////////////////////////// */
 
   /* Catalog <-> basket block */
   const basket = $(".basket");
@@ -141,7 +164,7 @@ $(document).ready(function () {
   const basketItems = $(".basket__items");
   const checkoutBtnBasket = $("#checkout-basket");
   const basketCloseBtn = $(".basket__title-close");
-  const orderItems = $(".checkout__order-review-items");
+  const orderItems = $(".review-items");
 
   let selectedProducts =
     JSON.parse(localStorage.getItem("selectedProducts")) || [];
@@ -221,45 +244,45 @@ $(document).ready(function () {
     ls.forEach(function (product) {
       const cartItemHTML = ` <li data-id=${
         product.productId
-      } class="checkout__order-review-item">
+      } class="review-item">
 
-            <picture class="checkout__order-review-item-info-img">
+            <picture class="review-item__info-img">
                 <source
                     srcset="${product.productImgWebP}"
                     type="image/webp"
                 />
 
                 <img
-                    class="checkout__order-review-item-info-icon"
+                    class="review-item__info-icon"
                     src="${product.productImg}"
                     alt="pulsometr"
                 />
             </picture>
 
-            <div class="checkout__order-review-item-info">
+            <div class="review-item__info">
 
-                <div class="checkout__order-review-item-info-product">
-                    <span class="checkout__order-review-item-info-product-name">
+                <div class="review-item__info-product">
+                    <span class="review-item__info-product-name">
                         ${product.productName}
                     </span>
                     
-                    <span class="checkout__order-review-item-info-product-quantity">
+                    <span class="review-item__info-product-quantity">
                         ${product.valueCounter} шт.
                     </span>
                 </div>
 
-                <div class="checkout__order-review-item-info-product">
-                    <p class="checkout__order-review-item-info-product-descr">
+                <div class="review-item__info-product">
+                    <p class="review-item__info-product-descr">
                         ${product.productDescr}
                     </p>
                 </div>
 
-                <div class="checkout__order-review-item-info-product">
-                    <span class="checkout__order-review-item-info-product-total-descr">
+                <div class="review-item__info-product">
+                    <span class="review-item__info-product-total-descr">
                         Цена
                     </span>
 
-                    <span class="checkout__order-review-item-info-product-price">
+                    <span class="review-item__info-product-price">
                     ${
                       product.productPrice
                         ? product.productPrice + " $"
@@ -345,13 +368,136 @@ $(document).ready(function () {
   /* Basket state -> localStorage */
   isEmpty(selectedProducts);
 
+  /* Counter */
+  const Counter = () => {
+    /* Plus btn */
+    $("[data-modal=plus]").each(function () {
+      const selectedPlusBtn = $(this);
+
+      /* Find item id -> basket */
+      const selectedItemId = selectedPlusBtn
+        .closest(".basket__item")
+        .attr("data-id");
+
+      /* Click - plus */
+      selectedPlusBtn.on("click", function () {
+        /* Find product index / localStorage <-> Item id / Basket */
+        const selectedProductIndex = selectedProducts.findIndex(
+          (item) => Number(item.productId) === Number(selectedItemId)
+        );
+
+        if (selectedProductIndex >= 0) {
+          /* Found product index */
+          const selectedProduct = selectedProducts[selectedProductIndex];
+
+          /* Inc counter -> localStorage */
+          selectedProduct.valueCounter += 1;
+
+          /* Find total price value -> Basket */
+          const totalPriceElement = selectedPlusBtn
+            .closest(".basket__item-info-counter")
+            .siblings(".basket__item-info-price");
+
+          if (selectedProduct.isDiscountPrice) {
+            /* Inc total product price + Product price -> localStorage */
+            selectedProduct.totalPrice += selectedProduct.productPrice;
+
+            /* Change total price value -> Basket */
+            totalPriceElement.text(`${selectedProduct.totalPrice} $`);
+          } else {
+            /* if discount price === true  */
+            selectedProduct.totalPrice += selectedProduct.productDefaultPrice;
+
+            /* Change total price value -> Basket */
+            totalPriceElement.text(`${selectedProduct.totalPrice} $`);
+          }
+
+          /* Find price value -> Basket */
+          const counterElement = selectedPlusBtn.siblings(
+            ".basket__item-info-value"
+          );
+
+          /* Change counter value -> Basket */
+          counterElement.text(selectedProduct.valueCounter);
+
+          /* Update localStorage */
+          localStorage.setItem(
+            "selectedProducts",
+            JSON.stringify(selectedProducts)
+          );
+        }
+      });
+    });
+
+    /* Minus btn */
+    $("[data-modal=minus]").each(function () {
+      const selectedMinusBtn = $(this);
+
+      /* Click - minus */
+      selectedMinusBtn.on("click", function () {
+        /* Find item id -> basket */
+        const selectedItemId = selectedMinusBtn
+          .closest(".basket__item")
+          .attr("data-id");
+
+        /* Find product index / localStorage <-> Item id / Basket */
+        const selectedProductIndex = selectedProducts.findIndex(
+          (item) => Number(item.productId) === Number(selectedItemId)
+        );
+
+        if (selectedProductIndex >= 0) {
+          /* Found product index */
+          const selectedProduct = selectedProducts[selectedProductIndex];
+
+          /* Decrease counter -> localStorage */
+          if (selectedProduct.valueCounter > 1) {
+            selectedProduct.valueCounter -= 1;
+
+            /* Find total price value -> Basket */
+            const totalPriceElement = selectedMinusBtn
+              .closest(".basket__item-info-counter")
+              .siblings(".basket__item-info-price");
+
+            if (selectedProduct.isDiscountPrice) {
+              /* Decrease total product price by Product price -> localStorage */
+              selectedProduct.totalPrice -= selectedProduct.productPrice;
+
+              /* Change total price value -> Basket */
+              totalPriceElement.text(`${selectedProduct.totalPrice} $`);
+            } else {
+              /* Decrease total product price by Default product price -> localStorage */
+              selectedProduct.totalPrice -= selectedProduct.productDefaultPrice;
+
+              /* Change total price value -> Basket */
+              totalPriceElement.text(`${selectedProduct.totalPrice} $`);
+            }
+
+            /* Find counter value -> Basket */
+            const counterElement = selectedMinusBtn.siblings(
+              ".basket__item-info-value"
+            );
+
+            /* Change counter value -> Basket */
+            counterElement.text(selectedProduct.valueCounter);
+
+            /* Update localStorage */
+            localStorage.setItem(
+              "selectedProducts",
+              JSON.stringify(selectedProducts)
+            );
+          }
+        }
+      });
+    });
+  };
+
   /* Counter -> localStorage / Basket */
   Counter();
 
   /* /////////////////////////////////////////////////////////////////////// */
 
   /* Total price state <- localStorage */
-  const totalOrder = $(".checkout__order-review-total-price");
+  const totalOrder = $(".review-total-price");
 
   const updateTotalPrice = (element) => {
     const totalAmount = selectedProducts.reduce(

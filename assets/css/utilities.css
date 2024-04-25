@@ -39,19 +39,32 @@
   right: 40px;
 }
 
-/* Success window */
-.success {
+/* Short window */
+.short-window {
+  font-size: 14px;
+  font-family: "Museo Sans 300 Light";
+  text-align: center;
   display: none;
   position: fixed;
   bottom: 120px;
   right: 40px;
   background-color: #f2f2f2;
-  padding: 30px;
+  padding: 20px;
+  line-height: 20px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);
 }
 
-.success__close {
-  left: -40px;
+.short-window__close {
+  color: #c70101;
+  position: absolute;
+  left: -30px;
+  top: 0px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.short-window__close:hover {
+  color: #ff0000;
 }
 
 /* Overlay block */

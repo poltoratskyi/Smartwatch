@@ -47,3 +47,28 @@
   font-family: "Museo Sans 300 Light";
   margin-bottom: 15px;
 }
+
+.consultation__form-input:hover {
+  border: 1px solid #797878;
+}
+
+.consultation__form-input:focus {
+  border: 1px solid #31a3db;
+}
+
+.consultation__form .error {
+  display: flex;
+  justify-content: center;
+  font-family: "Museo Sans 700 Bold";
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid #ff0000;
+  transition: border 0.3s ease-in-out;
+}
+
+.consultation__form label.error {
+  text-align: center;
+  border: none;
+  color: white;
+  margin-bottom: 15px;
+}

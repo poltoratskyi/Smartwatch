@@ -281,7 +281,7 @@
                     </g>
                   </svg>
 
-                  <span class="header__content-number">+1(23)456-789 </span>
+                  <span class="header__content-number">+380(XX)XXXXXXX </span>
                 </a>
 
                 <button
@@ -662,34 +662,35 @@
             </p>
           </h3>
 
-          <form class="consultation__form wow fadeInUp" action="#">
+          <form
+            id="consultationForm"
+            class="consultation__form wow fadeInUp"
+            action="#"
+          >
+            <!-- name -->
             <input
               class="consultation__form-input"
               type="text"
               name="name"
               placeholder="Введите ваше имя"
-              title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
-              pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
-              required
               autocomplete="name"
             />
+
+            <!-- phone number -->
             <input
               class="consultation__form-input"
               name="phone"
-              title="Телефон должен быть в формате +1(23) 456 789"
-              pattern="\+\d{1,2}\(\d{2}\) \d{3} \d{3}"
+              type="tel"
               placeholder="Введите ваш телефон"
-              required
               autocomplete="tel"
             />
+
+            <!-- mail -->
             <input
               class="consultation__form-input"
               type="email"
               name="email"
               placeholder="Введите ваш Email"
-              title="Email должен быть в формате example@example.com"
-              pattern="^[a-zA-Z][A-Za-z0-9._\-]+@[A-Za-z0-9]+\.[A-Za-z]{2,6}\b"
-              required
               autocomplete="email"
             />
 
@@ -1356,34 +1357,31 @@
             </p>
           </div>
 
-          <form class="modal-callback__form" action="#">
+          <form id="callbackForm" class="modal-callback__form" action="#">
+            <!-- name -->
             <input
               class="modal-callback__form-input"
               type="text"
               name="name"
               placeholder="Введите ваше имя"
-              title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
-              pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
-              required
               autocomplete="name"
             />
+
+            <!-- phone number -->
             <input
               class="modal-callback__form-input"
               name="phone"
-              title="Телефон должен быть в формате +1(23) 456 789"
-              pattern="\+\d{1,2}\(\d{2}\) \d{3} \d{3}"
+              type="tel"
               placeholder="Введите ваш телефон"
-              required
               autocomplete="tel"
             />
+
+            <!-- mail -->
             <input
               class="modal-callback__form-input"
               type="email"
               name="email"
               placeholder="Введите ваш Email"
-              title="Email должен быть в формате example@example.com"
-              pattern="^[a-zA-Z][A-Za-z0-9._\-]+@[A-Za-z0-9]+\.[A-Za-z]{2,6}\b"
-              required
               autocomplete="email"
             />
 
@@ -1597,15 +1595,15 @@
       </div>
     </div>
 
-    <div class="success">
-      <div class="success__close">&#x2715;</div>
-      <div class="success__title">
-        <span class="success__title-label">Спасибо за вашу заявку! </span>
+    <div class="short-window">
+      <div class="short-window__close">&#x2715;</div>
+      <div class="short-window__title">
+        <span class="short-window__title-label">Спасибо за вашу заявку! </span>
 
         <br />
         <br />
 
-        <p class="success__title-description">
+        <p class="short-window__title-description">
           Наш менеджер свяжется с вами в ближайшее время!
         </p>
       </div>
@@ -1631,6 +1629,8 @@
     <script src="assets/js/jquery-3.7.1.js"></script>
 
     <script src="assets/js/jquery.maskedinput.js"></script>
+
+    <script src="assets/js/jquery.validate.js"></script>
 
     <script src="assets/js/slick.js"></script>
 

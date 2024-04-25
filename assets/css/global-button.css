@@ -19,6 +19,7 @@
   background-color: transparent;
   display: flex;
   align-items: center;
+  margin-right: 10px;
 }
 
 .button_header-basket {

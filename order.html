@@ -61,6 +61,7 @@
         <h3 class="checkout__title">ОФОРМЛЕНИЕ ЗАКАЗА</h3>
 
         <form
+          id="orderForm"
           class="modal-callback__form modal-callback__form_checkout"
           action="#"
         >
@@ -73,9 +74,6 @@
               type="text"
               name="name"
               placeholder="Введите ваше имя"
-              title="Имя должно содержать только буквы и быть длиной не менее 2 символов"
-              pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
-              required
               autocomplete="name"
             />
 
@@ -83,11 +81,8 @@
             <input
               class="modal-callback__form-input"
               type="text"
-              name="name"
+              name="surname"
               placeholder="Введите вашу фамилию"
-              title="Фамилия должна содержать только буквы и быть длиной не менее 2 символов"
-              pattern="[a-zA-Zа-яА-ЯёЁ]{2,}"
-              required
               autocomplete="name"
             />
 
@@ -95,10 +90,8 @@
             <input
               class="modal-callback__form-input"
               name="phone"
-              title="Телефон должен быть в формате +1(23) 456 789"
-              pattern="\+\d{1,2}\(\d{2}\) \d{3} \d{3}"
+              type="tel"
               placeholder="Введите ваш телефон"
-              required
               autocomplete="tel"
             />
 
@@ -108,9 +101,6 @@
               type="email"
               name="email"
               placeholder="Введите ваш Email"
-              title="Email должен быть в формате example@example.com"
-              pattern="^[a-zA-Z][A-Za-z0-9._\-]+@[A-Za-z0-9]+\.[A-Za-z]{2,6}\b"
-              required
               autocomplete="email"
             />
 
@@ -122,8 +112,6 @@
               type="text"
               name="city"
               placeholder="Введите ваш город"
-              title="Город должен быть указан"
-              required
               autocomplete="address-level2"
             />
 
@@ -132,9 +120,7 @@
               class="modal-callback__form-input"
               type="text"
               name="address"
-              placeholder="Введите ваш адрес"
-              title="Адрес должен быть указан"
-              required
+              placeholder="Введите ваш адрес доставки поссылки"
               autocomplete="street-address"
             />
           </div>
@@ -147,28 +133,31 @@
                 <h4>ПОДЫТОГ</h4>
               </div>
 
-              <ul class="checkout__order-review-items"></ul>
+              <ul class="review-items"></ul>
 
-              <div class="checkout__order-review-total">
-                <span class="checkout__order-review-total-descr">
-                  К оплате без доставки:
-                </span>
+              <div class="review-total">
+                <span class="review-total-descr"> К оплате без доставки: </span>
 
-                <span class="checkout__order-review-total-price"></span>
+                <span class="review-total-price"></span>
               </div>
 
-              <!-- checkbox -->
-              <input type="checkbox" id="termsCheckbox" required />
-
-              <label
-                class="checkout__order-review-checkbox"
-                for="termsCheckbox"
+              <span class="checkout__order-review-privacy-text"
+                >Подтверждая заказ, я принимаю:</span
               >
-                Я прочитал(а) и принимаю
-                <a class="checkout__order-review-checkbox-link" href="">
-                  <b>правила и условия сайта</b>
-                </a>
-              </label>
+
+              <ul class="checkout__order-review-privacy">
+                <li class="checkout__order-review-privacy-item">
+                  <a class="checkout__order-review-privacy-item-link" href="">
+                    <b>положения о сборе и защите персональных данных </b>
+                  </a>
+                </li>
+
+                <li class="checkout__order-review-privacy-item">
+                  <a class="checkout__order-review-privacy-item-link" href="">
+                    <b>пользовательского соглашения </b>
+                  </a>
+                </li>
+              </ul>
 
               <button type="submit" class="button button_form-callback">
                 ПОДТВЕРДИТЬ ЗАКАЗ
@@ -549,6 +538,8 @@
     </footer>
 
     <script src="assets/js/jquery-3.7.1.js"></script>
+
+    <script src="assets/js/jquery.validate.js"></script>
 
     <script src="assets/js/jquery.maskedinput.js"></script>
 

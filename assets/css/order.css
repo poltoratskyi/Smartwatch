@@ -52,79 +52,95 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0px;
+  padding: 20px 0px;
   border-bottom: 1px solid #e8e8f3;
 }
 
-.checkout__order-review-item-info {
+.review-item__info {
   margin: 15px 0px 0px 30px;
 }
 
-.checkout__order-review-item-info-product,
-.checkout__order-review-item-total {
+.review-item__info-product,
+.review-item__total {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.checkout__order-review-item-info-product,
-.checkout__order-review-item-info-product-name,
-.checkout__order-review-item-info-product-quantity,
-.checkout__order-review-item-info-descr,
-.checkout__order-review-checkbox {
+.review-item__info-product,
+.review-item__info-product-name,
+.review-item__info-product-quantity,
+.review-item__info-descr,
+.checkout__order-review-privacy-text,
+.checkout__order-review-privacy {
   font-family: "Museo Sans 300 Light";
   font-size: 14px;
   color: #7d7d91;
 }
 
-.checkout__order-review-item-info-product {
+.review-item__info-product {
   margin-bottom: 20px;
 }
 
-.checkout__order-review-item-info-product-descr {
+.review-item__info-product-descr {
   color: #01011b;
   line-height: 20px;
   text-align: justify;
 }
 
-.checkout__order-review-item-info-product-price,
-.checkout__order-review-item-info-product-total-descr,
-.checkout__order-review-total {
+.review-item__info-product-price,
+.review-item__info-product-total-descr,
+.review-total {
   font-family: "Museo Sans 700 Bold";
   font-size: 16px;
   color: #01011b;
 }
 
-.checkout__order-review-total {
+.review-total {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0px;
+  padding: 20px 0px;
 }
 
-.checkout__order-review-checkbox-link:hover {
+.checkout__order-review-privacy-text {
+  display: block;
+  color: #01011b;
+  margin-top: 15px;
+}
+
+.checkout__order-review-privacy-item-link:hover {
+  color: #01011b;
   text-decoration: underline;
 }
 
-.checkout__order-review-checkbox {
+.checkout__order-review-privacy {
   color: #01011b;
+  margin: 10px 0px 10px 0px;
+  padding-left: 15px;
 }
 
-#termsCheckbox {
-  margin: 16px 0px;
+.checkout__order-review-privacy-item {
+  list-style-type: disc;
+  margin-top: 10px;
+  line-height: 20px;
+}
+
+.checkout__order-review-privacy-item:last-child {
+  margin-top: 5px;
 }
 
 .modal-callback__form-input:last-child {
   margin-bottom: 0px;
 }
 
-.checkout__order-review-item {
+.review-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #e8e8f3;
 }
 
-.checkout__order-review-item-info-icon {
+.review-item__info-icon {
   max-width: 100px;
 }

@@ -43,7 +43,6 @@
 
 @media (max-width: 991px) {
   /* header section */
-
   .header__content-menu-item-link,
   .header__content-more {
     padding: 5px;
@@ -308,19 +307,20 @@
     right: 10px;
   }
 
-  .success__close {
-    left: 5px;
-  }
-
-  .success {
+  .short-window {
     width: 50%;
     position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
   }
-  /* footer */
 
+  .short-window__close {
+    left: 10px;
+    top: 10px;
+  }
+
+  /* footer */
   .footer__social-media {
     display: none;
   }
@@ -336,6 +336,41 @@
   .footer__mobile-info {
     display: block;
   }
+
+  /* Adv section */
+  .adv__title {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /* Success section */
+  .success,
+  .product-details {
+    margin-bottom: 30px;
+  }
+
+  .success__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .success__info-title {
+    text-align: center;
+  }
+
+  .success__info {
+    margin-bottom: 10px;
+  }
+
+  .success__info-description {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .personal-info__content-items {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -345,7 +380,6 @@
   }
 
   /* header section */
-
   .container_header {
     padding: 120px 0px 40px 0px;
   }
@@ -471,15 +505,7 @@
     width: 100%;
   }
 
-  .modal-callback__close {
-    right: 20px;
-  }
-
-  .success__close {
-    left: 5px;
-  }
-
-  .success {
+  .short-window {
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -487,8 +513,19 @@
     transform: translateX(0);
   }
 
+  .short-window__close {
+    left: 10px;
+    top: 10px;
+  }
+
   .social-media-applications {
     display: flex;
+  }
+
+  .modal-callback__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   /* Footer section */
@@ -506,7 +543,6 @@
   }
 
   /* Checkout section */
-
   .checkout__nav {
     margin-bottom: 15px;
   }
@@ -515,24 +551,19 @@
     width: 140px;
   }
 
-  .checkout__order-review-item {
+  .review-item {
     margin-top: 20px;
-  }
-
-  .checkout__order-review-checkbox {
-    line-height: 20px;
   }
 
   #termsCheckbox {
     margin: 5px 0px;
   }
 
-  .checkout__order-review-item {
+  .review-item {
     flex-direction: column;
-    align-items: flex-start;
   }
 
-  .checkout__order-review-item-info {
+  .review-item__info {
     margin: 20px 0px 0px;
   }
 

@@ -1,0 +1,111 @@
+/* Success  block */
+.background {
+  background-color: #f4f4f9;
+  padding: 20px 0px;
+}
+
+.success,
+.product-details {
+  margin-bottom: 40px;
+}
+
+.success__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.success__info-title {
+  font-size: 20px;
+  text-align: left;
+  font-family: "Museo Sans 700 Bold";
+  margin-bottom: 10px;
+}
+
+.success__info-description {
+  font-size: 16px;
+  text-align: left;
+  font-family: "Museo Sans 300 Light";
+  line-height: 20px;
+}
+
+.personal-info,
+.adv {
+  margin-bottom: 20px;
+}
+
+.personal-info__content,
+.product-details__content {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #c1c1d4;
+}
+
+.personal-info__content-title,
+.product-details__content-title {
+  font-size: 18px;
+  text-align: center;
+  font-family: "Museo Sans 500 Medium";
+  padding-bottom: 20px;
+  border-bottom: 1px solid #c1c1d4;
+}
+
+.personal-info__content-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.personal-info__content-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Museo Sans 300 Light";
+  font-size: 14px;
+}
+
+.review-items_success {
+  padding-top: 20px;
+}
+
+.review-total_success {
+  justify-content: end;
+  padding-bottom: 0px;
+}
+
+.review-total-descr_success {
+  margin-right: 20px;
+}
+
+.adv__title {
+  font-size: 20px;
+  text-align: left;
+  font-family: "Museo Sans 500 Medium";
+  margin-bottom: 10px;
+  line-height: 25px;
+}
+
+.adv__icon {
+  width: 100%;
+}
+
+.feedback__title {
+  font-size: 18px;
+  font-family: "Museo Sans 500 Medium";
+  margin-bottom: 5px;
+}
+
+.feedback__descr {
+  font-family: "Museo Sans 300 Light";
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.feedback__descr-number:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright_success {
+  padding: 20px 0px;
+}

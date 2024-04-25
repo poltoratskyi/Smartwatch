@@ -9,8 +9,7 @@
   transform: translate(-50%, -50%);
 }
 
-.modal-callback__close,
-.success__close {
+.modal-callback__close {
   position: absolute;
   top: 2%;
   font-size: 35px;
@@ -22,13 +21,11 @@
   right: -40px;
 }
 
-.modal-callback__close:hover,
-.success__close:hover {
+.modal-callback__close:hover {
   color: #ff0000;
 }
 
-.modal-callback__title,
-.success__title {
+.modal-callback__title {
   text-align: center;
 }
 
@@ -36,24 +33,20 @@
   margin-bottom: 25px;
 }
 
-.modal-callback__title-label,
-.success__title-label {
+.modal-callback__title-label {
   font-size: 18px;
   font-family: "Museo Sans 700 Bold";
   color: #01011b;
 }
 
-.modal-callback__title-description,
-.success__title-description {
+.modal-callback__title-description {
   font-size: 14px;
   font-family: "Museo Sans 500 Medium";
   line-height: normal;
 }
 
 .modal-callback__form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: ruby;
 }
 
 .modal-callback__form-input {
@@ -65,6 +58,31 @@
   color: #4b4b4b;
   font-size: 14px;
   font-family: "Museo Sans 300 Light";
-  margin-bottom: 15px;
   border: 1px solid #c1c1d4;
+  transition: border 0.3s ease-in-out;
+  margin-bottom: 15px;
+}
+
+.modal-callback__form-input:hover {
+  border: 1px solid #797878;
+}
+
+.modal-callback__form-input:focus {
+  border: 1px solid #31a3db;
+}
+
+.modal-callback__form .error {
+  font-family: "Museo Sans 700 Bold";
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid #ff0000;
+  transition: border 0.3s ease-in-out;
+}
+
+.modal-callback__form label.error {
+  display: inline-block;
+  text-align: center;
+  border: none;
+  color: #01011b;
+  margin-bottom: 15px;
 }

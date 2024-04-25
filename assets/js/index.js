@@ -30,7 +30,7 @@ $(document).ready(function () {
   });
 
   /* Mask input */
-  $("input[name=phone]").mask("+1(23) 999 999", { autoclear: false });
+  $("input[name=phone]").mask("+380(99) 999 99 99", { autoclear: false });
 
   /* Animate css */
   new WOW().init();
@@ -181,9 +181,9 @@ $(document).ready(function () {
   const modalCallbackClose = $(".modal-callback__close");
   const modalOverlay = $(".modal-overlay");
 
-  /* Success window */
-  const successClose = $(".success__close");
-  const success = $(".success");
+  /* Short window */
+  const shortWindowClose = $(".short-window__close");
+  const shortWindow = $(".short-window");
 
   /* Open modal window of registration form -> btn */
   $("[data-modal=consultation]").on("click", function () {
@@ -200,45 +200,108 @@ $(document).ready(function () {
   };
 
   closeModalWindow(modalCallbackClose, modalOverlay);
-  closeModalWindow(successClose, success);
+  closeModalWindow(shortWindowClose, shortWindow);
 
   /* Close modal window of registration form -> keydown Escape */
   $(document).on("keydown", function (e) {
     if (e.key === "Escape") {
       $(modalOverlay).fadeOut(500);
       $(basketOverlay).fadeOut(500);
-      $(success).fadeOut(500);
+      $(shortWindow).fadeOut(500);
       $(basket).removeClass("basket_active");
       document.body.style.overflow = "auto";
     }
   });
 
-  /* Registration validation and sumbit the form window */
-  $(".consultation__form, .modal-callback__form").submit(function (e) {
-    e.preventDefault();
+  /* Registration validation and sumbit the form */
+  $.validator.addMethod(
+    "cyrillic",
+    function (value, element) {
+      return this.optional(element) || /^[а-яА-ЯёЁ]+$/i.test(value);
+    },
+    "Пожалуйста, введите только кириллические символы"
+  );
 
-    let isValid = true;
-    let formInputs = $(this).find(
-      ".consultation__form-input, .modal-callback__form-input"
-    );
+  $.validator.addMethod(
+    "numberUA",
+    function (value, element) {
+      return (
+        this.optional(element) ||
+        /^\+380\((?:50|66|95|99|63|67|68|96|97|98|39|73|93)\) \d{3} \d{2} \d{2}$/i.test(
+          value
+        )
+      );
+    },
+    "Пожалуйста, введите корректный номер телефона в формате +380(XX) XXX XX XX"
+  );
 
-    formInputs.each(function () {
-      if (!this.checkValidity()) {
-        isValid = false;
-        return false;
-      }
-    });
+  $.validator.addMethod(
+    "emailPublic",
+    function (value, element) {
+      return (
+        this.optional(element) ||
+        /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com|yandex\.ru)$/i.test(
+          value
+        )
+      );
+    },
+    "Пожалуйста, введите корректный Email"
+  );
 
-    if (isValid) {
-      formInputs.val("");
-      $(modalOverlay).fadeOut(500);
-      $(success).fadeIn(500);
-      document.body.style.overflow = "auto";
-      setTimeout(() => {
-        $(success).fadeOut(500);
-      }, 6000);
-    }
+  jQuery.validator.setDefaults({
+    success: "valid",
   });
+
+  const formValidate = (form) => {
+    $(form).validate({
+      rules: {
+        name: {
+          required: true,
+          minlength: 2,
+          cyrillic: true,
+        },
+        phone: {
+          required: true,
+          numberUA: true,
+        },
+        email: {
+          required: true,
+          email: true,
+        },
+      },
+      messages: {
+        name: {
+          required: "Пожалуйста, введите ваше имя",
+          minlength: "Имя должно быть не короче двух символов",
+        },
+        phone: {
+          required: "Пожалуйста, введите ваш номер телефона",
+        },
+        email: {
+          required: "Пожалуйста, введите ваш Email",
+          email: "Пожалуйста, введите корректный Email",
+        },
+      },
+
+      submitHandler: function (form, event) {
+        event.preventDefault();
+
+        $(form)
+          .find('input[type="text"], input[type="tel"], input[type="email"]')
+          .val("");
+
+        $(modalOverlay).fadeOut(500);
+        $(shortWindow).fadeIn(500);
+        document.body.style.overflow = "auto";
+        setTimeout(() => {
+          $(shortWindow).fadeOut(500);
+        }, 6000);
+      },
+    });
+  };
+
+  formValidate("#callbackForm");
+  formValidate("#consultationForm");
 
   /* /////////////////////////////////////////////////////////////////////// */
 
