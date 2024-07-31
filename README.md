@@ -11,15 +11,11 @@
 
 ## Description
 
-This project serves as a mini-project focusing on the sale of smartwatches, along with complementary straps and accessories. The website is designed as a simple, one-page platform, prioritizing a user-friendly experience. Crafted with simplicity in mind, the project is set to undergo gradual enhancements.
+This project focuses on selling smartwatches and additional straps and accessories.
 
 ## Functionality
 
-- Essential features mirroring a streamlined, one-page platform for smartwatches and accessories.
-- Simplified structure designed for an uncomplicated and user-friendly online shopping experience.
-- Minimalist functionality, highlighting simplicity and ease of use for browsing and purchasing.
-- Intentionally kept minimalistic, emphasizing essential elements to serve the straightforward purpose of the smartwatch store.
-- Mobile optimization guarantees a seamless shopping experience across various screen sizes and devices.
+- Optimized one-page platform for selling smartwatches and accessories.
 
 ## Requirements
 
@@ -47,8 +43,6 @@ Uncompressed Code:
 - Open `index.html` to run the project.
 
 ## Questions and Discussions
-
-This project is personal, and contributions are welcome. If you have questions or want to discuss any changes:
 
 - Email: poltoratskyialexander@gmail.com
 - [SimpleX Chat](https://simplex.chat/contact#/?v=1-4&smp=smp%3A%2F%2FZKe4uxF4Z_aLJJOEsC-Y6hSkXgQS5-oc442JQGkyP8M%3D%40smp17.simplex.im%2FzBpStVueK_9NcNKGgWWZuAw4EuibJks7%23%2F%3Fv%3D1-2%26dh%3DMCowBQYDK2VuAyEAzFBHs6ZksFf4chVCsrjlbqNb1HoVra57zWxeCdnjMUI%253D%26srv%3Dogtwfxyi3h2h5weftjjpjmxclhb5ugufa5rcyrmg7j4xlch7qsr5nuqd.onion) - optional
