@@ -17,6 +17,9 @@ This project focuses on selling smartwatches and additional straps and accessori
 
 ### Functionality
 
+🛍️ **Product Experience**
+ - Product Filtering
+
 🛒  **Shopping Cart**
 - Adding items to the cart
 - Updating quantities or removing items
