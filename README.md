@@ -49,14 +49,14 @@ This project focuses on selling smartwatches and additional straps and accessori
 
 Compressed Code:
 
-- Located in the `dist` folder:
-- Navigate to the project folder on your local machine.
-- Open `index.min.html` to run the project.
+- Located in the `dist` folder
+- Navigate to the project folder on your local machine
+- Open `index.min.html` to run the project
 
 Uncompressed Code:
 
-- Navigate to the project folder on your local machine.
-- Open `index.html` to run the project.
+- Navigate to the project folder on your local machine
+- Open `index.html` to run the project
 
 ---
 
