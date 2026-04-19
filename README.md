@@ -63,7 +63,6 @@ Uncompressed Code:
 ### Questions and Discussions
 
 - Email: poltoratskyialexander@gmail.com
-- [SimpleX Chat](https://simplex.chat/contact#/?v=1-4&smp=smp%3A%2F%2FZKe4uxF4Z_aLJJOEsC-Y6hSkXgQS5-oc442JQGkyP8M%3D%40smp17.simplex.im%2FzBpStVueK_9NcNKGgWWZuAw4EuibJks7%23%2F%3Fv%3D1-2%26dh%3DMCowBQYDK2VuAyEAzFBHs6ZksFf4chVCsrjlbqNb1HoVra57zWxeCdnjMUI%253D%26srv%3Dogtwfxyi3h2h5weftjjpjmxclhb5ugufa5rcyrmg7j4xlch7qsr5nuqd.onion) - optional
 
 ---
 
